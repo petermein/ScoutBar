@@ -18,7 +18,6 @@ package scoutbar.view.productselection
 		private var cardarr:Array = new Array();
 		private var scrollfield:Sprite = new Sprite();
 		private var maskingShape:Shape=new Shape();
-		private var maskingShape2:Shape=new Shape();
 		
 		private var top:int = 0;
 		private var bottom:int = 0;
@@ -46,12 +45,7 @@ package scoutbar.view.productselection
 			maskingShape.graphics.beginFill(0x000000,1);
 			maskingShape.graphics.drawRoundRect(0,0,stage.stageWidth - (left+right),stage.stageHeight - (top+bottom),50,50);
 			maskingShape.graphics.endFill();
-			maskingShape2.graphics.lineStyle();
-			maskingShape2.graphics.beginFill(0x00ffff,1);
-			maskingShape2.graphics.drawRoundRect(0,0,stage.stageWidth - (left+right),stage.stageHeight - (top+bottom),50,50);
-			maskingShape2.graphics.endFill();
 			addChild(maskingShape);
-			addChild(maskingShape2);
 			addChild(scrollfield);
 			this.mask = maskingShape;
 		}
