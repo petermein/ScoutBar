@@ -2,6 +2,8 @@ package scoutbar.view.productselection
 {
 	import com.adobe.serialization.json.JSON;
 	
+	import debug.Functions;
+	
 	import flash.display.Sprite;
 	
 	import scoutbar.data.Global;
