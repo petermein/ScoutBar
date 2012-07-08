@@ -47,7 +47,7 @@ package scoutbar.view.splash
 			label2.selectable = false;
 			label2.embedFonts = true;
 			var label2format:TextFormat = new TextFormat();  
-			label2format.color = 0x000000;   
+			label2format.color = 0xffffff;   
 			label2format.size = 100;   
 			label2format.italic = true; 
 			label2format.font = "Mistral";

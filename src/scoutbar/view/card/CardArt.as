@@ -3,7 +3,7 @@ package scoutbar.view.card
 	import flash.display.Bitmap;
 	import flash.display.Shape;
 	import flash.display.Sprite;
-	import flash.filters.DropShadowFilter;
+	import flash.filters.GlowFilter;
 	
 	import scoutbar.resource.Image;
 	
@@ -16,16 +16,16 @@ package scoutbar.view.card
 		public var Width:int;
 		public var Height:int;
 		
-		public function CardArt(img:Bitmap,w:int,h:int)
+		public function CardArt(img:Bitmap,w:int,h:int,c:uint = 0xffffff)
 		{
 			this.Width=w;
 			this.Height=h;
 			image = new Bitmap(img.bitmapData);
 			addChild(image);
 			
-			createGFX();
+			createGFX(c);
 		}
-		public function createGFX():void
+		public function createGFX(c:uint):void
 		{
 			maskingShape.graphics.lineStyle();
 			maskingShape.graphics.beginFill(0x000000,1);
@@ -33,11 +33,10 @@ package scoutbar.view.card
 			maskingShape.graphics.endFill();
 			addChild(maskingShape);
 			
-			bg.graphics.lineStyle();
-			bg.graphics.beginFill(0x000000,1);
-			bg.graphics.drawRoundRect(-2,-2,Width+4,Height+4,40,40);
-			bg.graphics.endFill();
-			//addChild(bg);
+			var myGlow:GlowFilter = new GlowFilter();
+			myGlow.color = c;
+			myGlow.strength = 255;
+			image.filters = [myGlow];
 			
 			var ratio:Number = image.height / image.width;
 			image.width = Width;

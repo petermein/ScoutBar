@@ -7,6 +7,7 @@ package scoutbar.view.card
 	import flash.display.Sprite;
 	import flash.events.Event;
 	import flash.events.IOErrorEvent;
+	import flash.filters.ColorMatrixFilter;
 	import flash.net.URLRequest;
 	import flash.text.TextField;
 	import flash.text.TextFormat;
@@ -14,9 +15,6 @@ package scoutbar.view.card
 	
 	import scoutbar.data.Global;
 	import scoutbar.resource.Image;
-	
-	import flash.display.Sprite;
-	import flash.filters.ColorMatrixFilter;
 	
 	public class Card extends Sprite
 	{
@@ -30,10 +28,10 @@ package scoutbar.view.card
 		
 		private var imageLoader:Loader = new Loader();
 		
-		public function Card(dao:*,w:int,h:int)
+		public function Card(dao:*,w:int,h:int,c:uint = 0xffffff)
 		{
 			this.data = dao;
-			this.image = new CardArt(dao.image,w,h);
+			this.image = new CardArt(dao.image,w,h,c);
 			this.addChild(image);
 			
 			this.bg.graphics.lineStyle();

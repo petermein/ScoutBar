@@ -140,7 +140,7 @@ package scoutbar.view.productselection
 			var total:Number = 0;
 			for(var index:String in ProductSelection.order.Rows){
 				if(ProductSelection.order.Rows[index] != null){
-					total += ProductSelection.order.Rows[index].aantal*ProductSelection.order.Rows[index].price;
+					total += ProductSelection.order.Rows[index].price;
 					productfield.appendText(ProductSelection.order.Rows[index].aantal+" x "+ProductSelection.order.Rows[index].naam + "\n");
 					pricefield.appendText("€ " + ProductSelection.order.Rows[index].price.toFixed(2) + "\n");
 				}
