@@ -11,9 +11,9 @@ package scoutbar.data
 		public static var USERS:Array = new Array();
 		public static var PRODUCTS:Array = new Array();
 		
-		public static var PRODUCT_URL:String = "http://localhost:8888/Ext/scoutbar/data/php/product.php";
-		public static var USER_URL:String = "http://localhost:8888/Ext/scoutbar/data/php/user.php";
-		public static var SEND_ORDER_URL:String = "http://localhost:8888/Ext/scoutbar/data/connector/updateUsers.php";
+		public static var PRODUCT_URL:String = "http://10.0.0.7/Ext/scoutbar/data/php/product.php";
+		public static var USER_URL:String = "http://10.0.0.7/Ext/scoutbar/data/php/user.php";
+		public static var SEND_ORDER_URL:String = "http://10.0.0.7/Ext/scoutbar/data/connector/updateUsers.php";
 
 		public static var BASE_IMG_PATH:String = "../assets/";
 		public static var SCOUTBAR = null;
