@@ -28,7 +28,7 @@ package scoutbar.loader
 		 * 
 		 **/
 		public function Send(obj:Object):Boolean{
-			var url:String = "http://localhost/Ext/scoutbar/data/connector/updateUsers.php";
+			var url:String = Global.SEND_ORDER_URL;
 			var request:URLRequest = new URLRequest(url);
 			var requestVars:URLVariables = new URLVariables();
 			request.data =  com.adobe.serialization.json.JSON.encode(obj);;
