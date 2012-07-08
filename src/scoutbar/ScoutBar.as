@@ -88,7 +88,6 @@ package scoutbar
 			us =  new UserSelection();
 			us.x = stage.stageWidth;
 			stage.addChild(us);
-
 		}
 		
 		protected function createProductSelection():void {
