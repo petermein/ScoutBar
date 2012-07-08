@@ -15,6 +15,9 @@ package scoutbar.view.card
 	import scoutbar.data.Global;
 	import scoutbar.resource.Image;
 	
+	import flash.display.Sprite;
+	import flash.filters.ColorMatrixFilter;
+	
 	public class Card extends Sprite
 	{
 		
@@ -42,6 +45,16 @@ package scoutbar.view.card
 			image.x = 10;
 			image.y = 10;
 			this.addChild(image);
+			
+			var matrix:Array = new Array();
+			matrix=matrix.concat([0.5,0.5,0.5,0,0]);// red
+			matrix=matrix.concat([0.5,0.5,0.5,0,0]);// green
+			matrix=matrix.concat([0.5,0.5,0.5,0,0]);// blue
+			matrix=matrix.concat([0,0,0,1,0]);// alpha
+			var my_filter:ColorMatrixFilter=new ColorMatrixFilter(matrix);
+			image.filters=[my_filter];
+			
+			
 			
 			var textformat:TextFormat = new TextFormat();
 			textformat.size = 15;

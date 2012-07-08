@@ -71,7 +71,7 @@ package scoutbar
 			backGroundSprite.graphics.beginBitmapFill(Image.Splashbg.bitmapData);
 			backGroundSprite.graphics.drawRect(0, 0, stage.stageWidth, stage.stageHeight);
 			backGroundSprite.graphics.endFill();
-			//this.addChild(backGroundSprite);
+			this.addChild(backGroundSprite);
 			trace("Init successfull");
 		}
 		

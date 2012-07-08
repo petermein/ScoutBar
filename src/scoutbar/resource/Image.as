@@ -9,7 +9,7 @@ package scoutbar.resource
 		private static const _background:Class;
 		public static const Background:Bitmap = new _background() as Bitmap;
 		
-		[Embed (source="./assets/cardboard.png" )]
+		[Embed (source="./assets/bg.jpg" )]
 		private static const _splashbg:Class;
 		public static const Splashbg:Bitmap = new _splashbg() as Bitmap;
 		
