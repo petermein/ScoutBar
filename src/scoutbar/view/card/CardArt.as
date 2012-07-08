@@ -26,12 +26,13 @@ package scoutbar.view.card
 		{
 			maskingShape.graphics.lineStyle();
 			maskingShape.graphics.beginFill(0x000000,1);
-			maskingShape.graphics.drawRoundRect(0,0,Width,Height,75,75);
+			maskingShape.graphics.drawRoundRect(0,0,Width,Height,40,40);
 			maskingShape.graphics.endFill();
 			addChild(maskingShape);
 			
+			var ratio:Number = image.height / image.width;
 			image.width = Width;
-			image.height = Height;
+			image.height = Width * ratio;
 			image.mask = maskingShape;
 			
 			dropShadow.distance = 10;
@@ -45,7 +46,7 @@ package scoutbar.view.card
 			dropShadow.inner = false;
 			dropShadow.knockout = false;
 			dropShadow.hideObject = false;
-			image.filters = new Array(dropShadow);
+			//image.filters = new Array(dropShadow);
 		
 			addChild(image);
 		}

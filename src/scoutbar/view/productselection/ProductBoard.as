@@ -56,7 +56,7 @@ package scoutbar.view.productselection
 		public function createCards():void
 		{
 			for(var index:String in Global.PRODUCTS){
-				var card:Card = new Card(Global.PRODUCTS[index]);
+				var card:Card = new Card(Global.PRODUCTS[index],90,90);
 				scrollfield.addChild(card);
 				cardarr.push(card);
 			}

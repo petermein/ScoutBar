@@ -27,10 +27,10 @@ package scoutbar.view.card
 		
 		private var imageLoader:Loader = new Loader();
 		
-		public function Card(dao:*)
+		public function Card(dao:*,w:int,h:int)
 		{
 			this.data = dao;
-			this.image = new CardArt(dao.image,90,90);
+			this.image = new CardArt(dao.image,w,h);
 			this.addChild(image);
 			
 			this.bg.graphics.lineStyle();
@@ -49,7 +49,7 @@ package scoutbar.view.card
 			text.defaultTextFormat = textformat;
 			text.text = data.toString();
 			text.x = 0;
-			text.y = 105;
+			text.y = 15 + h;
 			text.width = 110;
 			text.height = 40;
 			text.textColor = 0xFFFFFF;
