@@ -11,6 +11,7 @@ package scoutbar.view.productselection
 	public class ProductBar extends Sprite
 	{
 		private var bg:Shape = new Shape();
+		private var bg2:Shape = new Shape();
 		private var image:CardArt = new CardArt(Image.Panda,200,300);
 		private var Width:int;
 		
@@ -25,9 +26,18 @@ package scoutbar.view.productselection
 			trace("create product barr");
 			this.bg.graphics.lineStyle();
 			this.bg.graphics.beginFill(0xf0f0f0,0.5);
-			this.bg.graphics.drawRect(0,0,Width,this.stage.stageHeight);
+			this.bg.graphics.drawRect(0,340,Width,this.stage.stageHeight - 340);
 			this.bg.graphics.endFill();
 			this.addChild(bg);
+			this.bg2.graphics.lineStyle();
+			this.bg2.graphics.beginFill(0x000000,0.5);
+			this.bg2.graphics.drawRect(0,0,Width,340);
+			this.bg2.graphics.endFill();
+			this.addChild(bg2);
+			
+			this.image.x = 20;//2 / (this.Width - this.image.Width)
+			this.image.y = this.image.x;
+			this.addChild(image);
 		}
 	}
 }
