@@ -65,13 +65,19 @@ package scoutbar.view.userselection
 		}
 		public function sortcards(t:String = ""):void
 		{
+			
+			//var ycount:int = maskingShape.height / temparr[0].height;
+			//var maxobj:int = xcount*ycount;
+			
 			currentString = t;
 			var temparr:Array = cardarr.filter(searchName);
 			for(var index:String in cardarr){
 				cardarr[index].visible = false;
 			}
 			for(var index2:String in temparr){
-				temparr[index2].visible = true;
+				//if(index2 < maxobj){
+					temparr[index2].visible = true;
+				//}
 			}
 			
 			var xcount:int = maskingShape.width / temparr[0].width;
