@@ -9,6 +9,7 @@ package scoutbar.data
 	public class Order extends EventDispatcher
 	{
 		public var User:int;
+		public var BarUser:int;
 		public var Account:int;
 		public var Rows:Array = new Array();
 		
@@ -16,6 +17,11 @@ package scoutbar.data
 			this.User = user.persoon_id;
 			this.Account = user.rekening;
 			dispatchEvent(new OrderEvents(OrderEvents.ORDER_CREATED));
+		}
+		
+		public function startAddMoney(personel:*):void{
+			this.BarUser = personel.persoon_id;
+			dispatchEvent(new OrderEvents(OrderEvents.ORDER_MONEY_ADD));
 		}
 		
 		public function AddRow(amount:int, product:Product):void{

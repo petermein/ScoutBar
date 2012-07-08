@@ -11,6 +11,8 @@ package scoutbar.events
 		public static const ORDER_ROW_DELETED:String = "orderRowDeleted";
 		
 		public static const ORDER_ROW_CLEARED:String = "orderRowCleared";
+		
+		public static const ORDER_MONEY_ADD:String = "orderMoneyAdd";
 
 		public function OrderEvents(type:String, bubbles:Boolean=false, cancelable:Boolean=false):void
 		{
