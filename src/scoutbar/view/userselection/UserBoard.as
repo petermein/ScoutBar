@@ -64,9 +64,9 @@ package scoutbar.view.userselection
 		}
 		public function sortcards(t:String = ""):void
 		{
-			
-		 
-			var maxobj:int = (maskingShape.height / cardarr[0].height)*(maskingShape.width / cardarr[0].width);
+			var xcount:int = maskingShape.width / cardarr[0].width;
+			var ycount:int = maskingShape.height / cardarr[0].height;
+			var maxobj:int = xcount * ycount;
 			currentString = t;
 			var temparr:Array = cardarr.filter(searchName);
 			for(var index:String in cardarr){
@@ -78,17 +78,23 @@ package scoutbar.view.userselection
 				}
 			}
 			if(temparr.length != 0){
-				var xcount:int = maskingShape.width / temparr[0].width;
+				
+				trace(xcount +" || "+ ycount);
 				var countx:int = 0;
 				var county:int = 0;
 				var xoffset:int = (maskingShape.width - (xcount * temparr[0].width))/2;
+				var yoffset:int = (maskingShape.height - (ycount * temparr[0].height))/2;
 				if (xoffset <= cardarr[0].width * 0.2){
 					xcount--;
 					xoffset = (maskingShape.width - (xcount * temparr[0].width))/2;
 				}
+				if (yoffset <= cardarr[0].height * 0.2){
+					ycount--;
+					yoffset = (maskingShape.height - (ycount * temparr[0].height))/2;
+				}
 				for(var i:Number=0; i<temparr.length;i++){
 					temparr[i].x = (temparr[i].width * countx)+xoffset;
-					temparr[i].y = (temparr[i].height * county)+20;
+					temparr[i].y = (temparr[i].height * county)+yoffset;
 					countx++
 					if(countx >= xcount){
 						countx = 0;
