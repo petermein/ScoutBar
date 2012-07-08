@@ -37,7 +37,7 @@ package scoutbar.view.card
 			bg.graphics.beginFill(0x000000,1);
 			bg.graphics.drawRoundRect(-2,-2,Width+4,Height+4,40,40);
 			bg.graphics.endFill();
-			addChild(bg);
+			//addChild(bg);
 			
 			var ratio:Number = image.height / image.width;
 			image.width = Width;
