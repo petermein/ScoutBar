@@ -1,10 +1,13 @@
 package scoutbar.view.productselection
 {
+	import com.adobe.serialization.json.JSON;
+	
 	import flash.display.Sprite;
 	
 	import scoutbar.data.Order;
 	import scoutbar.data.User;
 	import scoutbar.events.ProductEvent;
+	import scoutbar.loader.JsonSendEvent;
 	import scoutbar.view.productselection.ProductBoard;
 	
 	public class ProductSelection extends Sprite
@@ -18,6 +21,11 @@ package scoutbar.view.productselection
 		{
 			this.addChild(board);
 			this.addChild(border);
+		}
+		
+		public static function sendOrder():void{
+			var sender:JsonSendEvent = new JsonSendEvent();
+			sender.Send(order);
 		}
 		
 		public function setUser(user:User):void{
