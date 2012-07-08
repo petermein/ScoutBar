@@ -59,42 +59,41 @@ package scoutbar.view.userselection
 				card.addEventListener(MouseEvent.CLICK, openOrder);
 				scrollfield.addChild(card);
 				cardarr.push(card);
-				card.setCount(5);
 			}
 			sortcards();
 		}
 		public function sortcards(t:String = ""):void
 		{
 			
-			//var ycount:int = maskingShape.height / temparr[0].height;
-			//var maxobj:int = xcount*ycount;
-			
+		 
+			var maxobj:int = (maskingShape.height / cardarr[0].height)*(maskingShape.width / cardarr[0].width);
 			currentString = t;
 			var temparr:Array = cardarr.filter(searchName);
 			for(var index:String in cardarr){
 				cardarr[index].visible = false;
 			}
-			for(var index2:String in temparr){
-				//if(index2 < maxobj){
-					temparr[index2].visible = true;
-				//}
+			for(var a:int=0; a<temparr.length;a++){
+				if(a < maxobj){
+					temparr[a].visible = true;
+				}
 			}
-			
-			var xcount:int = maskingShape.width / temparr[0].width;
-			var countx:int = 0;
-			var county:int = 0;
-			var xoffset:int = (maskingShape.width - (xcount * temparr[0].width))/2;
-			if (xoffset <= cardarr[0].width * 0.2){
-				xcount--;
-				xoffset = (maskingShape.width - (xcount * temparr[0].width))/2;
-			}
-			for(var i:Number=0; i<temparr.length;i++){
-				temparr[i].x = (temparr[i].width * countx)+xoffset;
-				temparr[i].y = (temparr[i].height * county)+20;
-				countx++
-				if(countx >= xcount){
-					countx = 0;
-					county++;
+			if(temparr.length != 0){
+				var xcount:int = maskingShape.width / temparr[0].width;
+				var countx:int = 0;
+				var county:int = 0;
+				var xoffset:int = (maskingShape.width - (xcount * temparr[0].width))/2;
+				if (xoffset <= cardarr[0].width * 0.2){
+					xcount--;
+					xoffset = (maskingShape.width - (xcount * temparr[0].width))/2;
+				}
+				for(var i:Number=0; i<temparr.length;i++){
+					temparr[i].x = (temparr[i].width * countx)+xoffset;
+					temparr[i].y = (temparr[i].height * county)+20;
+					countx++
+					if(countx >= xcount){
+						countx = 0;
+						county++;
+					}
 				}
 			}
 		}
