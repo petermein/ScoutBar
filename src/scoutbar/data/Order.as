@@ -1,6 +1,7 @@
 package scoutbar.data
 {
 	import flash.events.EventDispatcher;
+	
 	import scoutbar.data.User;
 	import scoutbar.events.OrderEvents;
 	
@@ -11,14 +12,14 @@ package scoutbar.data
 		private var Account:int;
 		private var Rows:Array = new Array();
 		
-		public function Order(user:User, test:String){
+		public function Order(user:*){
 			this.User = user.persoon_id;
 			this.Account = user.rekening;
 			dispatchEvent(new OrderEvents(OrderEvents.ORDER_CREATED));
 		}
 		
 		public function AddRow(amount:int, product:Product):void{
-			var Row = new OrderRow(amount, product);
+			var Row:OrderRow = new OrderRow(amount, product);
 			this.Rows[product.product_id] = Row;
 			dispatchEvent(new OrderEvents(OrderEvents.ORDER_ROW_ADDED));
 		}
