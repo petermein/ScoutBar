@@ -94,7 +94,7 @@ package scoutbar.view.userselection
 		}
 		private function openOrder(e:MouseEvent):void{
 			var ref:Card = e.currentTarget as Card;
-			Global.SCOUTBAR.switchToProductSelection(null);
+			Global.SCOUTBAR.switchToProductSelection(ref.data);
 		}
 		
 		private function searchName(item:*,index:int,array:Array):Boolean
