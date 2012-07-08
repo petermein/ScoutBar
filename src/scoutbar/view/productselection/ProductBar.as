@@ -13,8 +13,9 @@ package scoutbar.view.productselection
 	{
 		private var bg:Shape = new Shape();
 		private var bg2:Shape = new Shape();
-		private var knop:Shape = new Shape();
+		private var knopshape:Shape = new Shape();
 		private var image:CardArt = new CardArt(Image.Panda,200,300);
+		private var knop:Sprite = new Sprite();
 		private var Width:int;
 		
 		public function ProductBar(w:int)
@@ -38,11 +39,12 @@ package scoutbar.view.productselection
 			this.bg2.graphics.endFill();
 			this.addChild(bg2);
 			
-			this.knop.graphics.lineStyle();
-			this.knop.graphics.beginFill(0x000000,0.5);
-			this.knop.graphics.drawRoundRect(20,this.stage.stageHeight - 100,Width-40,80,30,30);
-			this.knop.graphics.endFill();
-			this.knop.addEventListener(MouseEvent.CLICK, send);
+			this.knopshape.graphics.lineStyle();
+			this.knopshape.graphics.beginFill(0x000000,0.5);
+			this.knopshape.graphics.drawRoundRect(20,this.stage.stageHeight - 100,Width-40,80,30,30);
+			this.knopshape.graphics.endFill();
+			this.knopshape.addEventListener(MouseEvent.CLICK, send);
+			knop.addChild(knopshape);
 			this.addChild(knop);
 			
 			this.image.x = 20;//2 / (this.Width - this.image.Width)
