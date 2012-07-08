@@ -60,6 +60,7 @@ package scoutbar.view.userselection
 				scrollfield.addChild(card);
 				cardarr.push(card);
 			}
+			cardarr.sort(card.compareCards);
 			sortcards();
 		}
 		public function sortcards(t:String = ""):void

@@ -68,5 +68,19 @@ package scoutbar.view.card
 		public function setCount(i:int):void{
 			push.setcounter(i);
 		}
+		public function compareCards(a:Card,b:Card):int
+		{
+			if(a.data.voornaam == b.data.voornaam){
+				if(a.data.achternaam <= b.data.achternaam){
+					return -1;
+				}else{
+					return 1;
+				}
+			}else if(a.data.voornaam < b.data.voornaam){
+				return -1;
+			}else{
+				return 1;
+			}
+		}
 	}
 }

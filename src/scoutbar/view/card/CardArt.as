@@ -5,11 +5,13 @@ package scoutbar.view.card
 	import flash.display.Sprite;
 	import flash.filters.DropShadowFilter;
 	
+	import scoutbar.resource.Image;
+	
 	public class CardArt extends Sprite
 	{
 		private var image:Bitmap;
 		private var maskingShape:Shape=new Shape();
-		private var dropShadow:DropShadowFilter = new DropShadowFilter();
+		private var bg:Shape=new Shape();
 		
 		public var Width:int;
 		public var Height:int;
@@ -20,6 +22,7 @@ package scoutbar.view.card
 			this.Height=h;
 			image = new Bitmap(img.bitmapData);
 			addChild(image);
+			
 			createGFX();
 		}
 		public function createGFX():void
@@ -30,23 +33,17 @@ package scoutbar.view.card
 			maskingShape.graphics.endFill();
 			addChild(maskingShape);
 			
+			bg.graphics.lineStyle();
+			bg.graphics.beginFill(0x000000,1);
+			bg.graphics.drawRoundRect(-2,-2,Width+4,Height+4,40,40);
+			bg.graphics.endFill();
+			addChild(bg);
+			
 			var ratio:Number = image.height / image.width;
 			image.width = Width;
 			image.height = Width * ratio;
 			image.mask = maskingShape;
 			
-			dropShadow.distance = 10;
-			dropShadow.angle = 45;
-			dropShadow.color = 0x333333;
-			dropShadow.alpha = 1;
-			dropShadow.blurX = 10;
-			dropShadow.blurY = 10;
-			dropShadow.strength = 1.2;
-			dropShadow.quality = 15;
-			dropShadow.inner = false;
-			dropShadow.knockout = false;
-			dropShadow.hideObject = false;
-			//image.filters = new Array(dropShadow);
 		
 			addChild(image);
 		}

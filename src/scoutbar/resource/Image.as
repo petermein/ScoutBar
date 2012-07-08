@@ -20,5 +20,9 @@ package scoutbar.resource
 		[Embed (source="./assets/push.png" )]
 		private static const _push:Class;
 		public static const Push:Bitmap = new _push() as Bitmap;
+		
+		[Embed (source="./assets/gloss.png" )]
+		private static const _gloss:Class;
+		public static const Gloss:Bitmap = new _gloss() as Bitmap;
 	}
 }
