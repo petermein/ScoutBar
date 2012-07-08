@@ -61,7 +61,6 @@ package scoutbar.view.card
 			this.addChild(text);
 			
 			push.x = 80;
-			push.y = 5;
 			push.y = -5;
 			this.addChild(push);
 		}
