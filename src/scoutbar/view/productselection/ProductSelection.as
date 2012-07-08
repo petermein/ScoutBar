@@ -33,6 +33,7 @@ package scoutbar.view.productselection
 		
 		public function setUser(user:User):void{
 			order = new Order(user);
+			border.setUser(user);
 			dispatchEvent(new ProductEvent(ProductEvent.USER_LOADED));
 		}
 	}

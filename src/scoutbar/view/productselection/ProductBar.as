@@ -5,7 +5,11 @@ package scoutbar.view.productselection
 	import flash.display.Sprite;
 	import flash.events.Event;
 	import flash.events.MouseEvent;
+	import flash.text.TextField;
+	import flash.text.TextFormat;
+	import flash.text.TextFormatAlign;
 	
+	import scoutbar.data.User;
 	import scoutbar.resource.Image;
 	import scoutbar.view.card.CardArt;
 
@@ -16,6 +20,8 @@ package scoutbar.view.productselection
 		private var knopshape:Shape = new Shape();
 		private var image:CardArt = new CardArt(Image.Panda,200,300);
 		private var knop:Sprite = new Sprite();
+		private var namefield:TextField = new TextField();
+		
 		private var Width:int;
 		
 		public function ProductBar(w:int)
@@ -47,9 +53,29 @@ package scoutbar.view.productselection
 			knop.addEventListener(MouseEvent.CLICK, send);
 			this.addChild(knop);
 			
+			var textformat:TextFormat = new TextFormat();
+			textformat.size = 15;
+			textformat.align = TextFormatAlign.CENTER;
+			this.namefield.defaultTextFormat = textformat;
+			this.namefield.text = "test";
+			this.namefield.x = 0;
+			this.namefield.y = 320;
+			this.namefield.width = Width;
+			this.namefield.height = 40;
+			this.namefield.textColor = 0xFFFFFF;
+			this.namefield.selectable = false;
+			this.namefield.wordWrap = true;
+			this.addChild(namefield);
+			
 			this.image.x = 20;//2 / (this.Width - this.image.Width)
 			this.image.y = this.image.x;
 			this.addChild(image);
+		}
+		
+		public function setUser(user:User):void
+		{
+			namefield.text = user.voornaam + " " + user.achternaam;
+			image.setImage(user.image);
 		}
 		
 		public function send(e:Event):void {

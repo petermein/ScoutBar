@@ -50,6 +50,9 @@ package scoutbar.view.card
 		
 			addChild(image);
 		}
-		
+		public function setImage(b:Bitmap):void
+		{
+			image.bitmapData = b.bitmapData;
+		}
 	}
 }
