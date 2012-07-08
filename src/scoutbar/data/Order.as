@@ -8,9 +8,9 @@ package scoutbar.data
 	
 	public class Order extends EventDispatcher
 	{
-		private var User:int;
-		private var Account:int;
-		private var Rows:Array = new Array();
+		public var User:int;
+		public var Account:int;
+		public var Rows:Array = new Array();
 		
 		public function Order(user:*){
 			this.User = user.persoon_id;

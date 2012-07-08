@@ -43,8 +43,8 @@ package scoutbar.view.productselection
 			this.knopshape.graphics.beginFill(0x000000,0.5);
 			this.knopshape.graphics.drawRoundRect(20,this.stage.stageHeight - 100,Width-40,80,30,30);
 			this.knopshape.graphics.endFill();
-			this.knopshape.addEventListener(MouseEvent.CLICK, send);
 			knop.addChild(knopshape);
+			knop.addEventListener(MouseEvent.CLICK, send);
 			this.addChild(knop);
 			
 			this.image.x = 20;//2 / (this.Width - this.image.Width)

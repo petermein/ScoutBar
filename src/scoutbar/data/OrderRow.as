@@ -2,9 +2,9 @@ package scoutbar.data
 {
 	public class OrderRow
 	{
-		private var aantal:int;
-		private var product:int;
-		private var price:Number;
+		public var aantal:int;
+		public var product:int;
+		public var price:Number;
 		
 		public function OrderRow(amount:int, product:Product)
 		{

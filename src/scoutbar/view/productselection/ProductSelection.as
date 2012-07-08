@@ -4,6 +4,7 @@ package scoutbar.view.productselection
 	
 	import flash.display.Sprite;
 	
+	import scoutbar.data.Global;
 	import scoutbar.data.Order;
 	import scoutbar.data.User;
 	import scoutbar.events.ProductEvent;
@@ -24,7 +25,6 @@ package scoutbar.view.productselection
 		}
 		
 		public static function sendOrder():void{
-			trace('send');
 			var sender:JsonSendEvent = new JsonSendEvent();
 			sender.Send(order);
 		}
