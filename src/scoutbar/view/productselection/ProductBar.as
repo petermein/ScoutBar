@@ -24,6 +24,7 @@ package scoutbar.view.productselection
 		private var productfield:TextField = new TextField();
 		private var pricefield:TextField = new TextField();
 		private var saldo:TextField = new TextField();
+		private var pad:codePad = new codePad();
 		
 		private var Width:int;
 		
@@ -62,7 +63,7 @@ package scoutbar.view.productselection
 			this.namefield.defaultTextFormat = textformat;
 			this.namefield.text = "test";
 			this.namefield.x = 0;
-			this.namefield.y = 290;
+			this.namefield.y = 293;
 			this.namefield.width = Width;
 			this.namefield.height = 40;
 			this.namefield.textColor = 0xFFFFFF;
@@ -115,6 +116,10 @@ package scoutbar.view.productselection
 			this.saldo.wordWrap = true;
 			this.addChild(saldo);
 			
+			this.pad.x = 60;
+			this.pad.y = 760;
+			this.addChild(pad);
+			
 			this.image.x = (this.Width - this.image.Width)/2;
 			this.image.y = this.image.x;
 			this.addChild(image);
@@ -122,7 +127,13 @@ package scoutbar.view.productselection
 		
 		public function setUser(user:User):void
 		{
+			if(user.saldo < 0){
+				saldo.textColor = 0xff0000;
+			}else{
+				saldo.textColor = 0xffffff;
+			}
 			saldo.text = "€ "+user.saldo.toFixed(2);
+			
 			productfield.text = "";
 			pricefield.text = "";
 			namefield.text = user.voornaam + " " + user.achternaam;

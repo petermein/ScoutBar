@@ -83,13 +83,19 @@ package scoutbar.view.productselection
 			var countx:int = 0;
 			var county:int = 0;
 			var xoffset:int = (maskingShape.width - (xcount * cardarr[0].width))/2;
+			var precat:int = 1;
 			if (xoffset <= cardarr[0].width * 0.2){
 				xcount--;
 				xoffset = (maskingShape.width - (xcount * cardarr[0].width))/2;
 			}
 			for(var i:Number=0; i<cardarr.length;i++){
+				if(precat != cardarr[i].data.categorie){
+					countx = 0;
+					county++;
+				}
 				cardarr[i].x = (cardarr[i].width * countx)+xoffset;
 				cardarr[i].y = (cardarr[i].height * county)+20;
+				precat = cardarr[i].data.categorie;
 				countx++
 				if(countx >= xcount){
 					countx = 0;
