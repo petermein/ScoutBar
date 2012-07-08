@@ -21,11 +21,11 @@ package scoutbar.view.card
 			//this.image.graphics.endFill();
 				
 			var textformat:TextFormat = new TextFormat();
-			textformat.size = 25;
+			textformat.size = 22;
 			this.counter.width = 30;
 			this.counter.height = 25;
-			this.counter.x = 0;
-			this.counter.y = 2;
+			this.counter.x = 4;
+			this.counter.y = 7;
 			textformat.align = TextFormatAlign.CENTER;
 			this.counter.defaultTextFormat = textformat;
 			this.counter.text = ""

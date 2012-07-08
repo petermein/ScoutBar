@@ -59,7 +59,7 @@ package scoutbar.view.userselection
 				card.addEventListener(MouseEvent.CLICK, openOrder);
 				scrollfield.addChild(card);
 				cardarr.push(card);
-				card.setCount(2);
+				card.setCount(5);
 			}
 			sortcards();
 		}

@@ -25,7 +25,7 @@ package scoutbar.view.productselection
 			trace("create product barr");
 			this.bg.graphics.lineStyle();
 			this.bg.graphics.beginFill(0xf0f0f0,0.5);
-			this.bg.graphics.drawRect(0,0,Width,this.stage.stageWidth);
+			this.bg.graphics.drawRect(0,0,Width,this.stage.stageHeight);
 			this.bg.graphics.endFill();
 			this.addChild(bg);
 		}
