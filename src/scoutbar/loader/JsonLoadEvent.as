@@ -50,7 +50,7 @@ package scoutbar.loader
 			var myData:Object = com.adobe.serialization.json.JSON.decode(this.Loaders['users'].data);
 			var count:int = 0;
 			var total:int = 0;
-			for(var index:String in myData.data){
+			for(var i:String in myData.data){
 				total++;
 			}
 			for(var index:String in myData.data){
@@ -82,7 +82,7 @@ package scoutbar.loader
 			var myData:Object = com.adobe.serialization.json.JSON.decode(this.Loaders['products'].data);
 			var count:int = 0;
 			var total:int = 0;
-			for(var index:String in myData.data){
+			for(var i:String in myData.data){
 				total++;
 			}
 			for(var index:String in myData.data){
