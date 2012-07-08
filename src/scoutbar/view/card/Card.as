@@ -61,6 +61,10 @@ package scoutbar.view.card
 			push.y = 5;
 			this.addChild(push);
 		}
+		public function incCount():int{
+			return push.incrementCounter();
+		}
+		
 		public function setCount(i:int):void{
 			push.setcounter(i);
 		}

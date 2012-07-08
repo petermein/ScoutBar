@@ -11,8 +11,6 @@ package scoutbar.data
 			this.aantal = amount;
 			this.product = product.product_id;
 			this.price = (product.prijs * amount);
-			
-			
-		}
+			}
 	}
 }

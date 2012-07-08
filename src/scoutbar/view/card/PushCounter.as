@@ -13,6 +13,8 @@ package scoutbar.view.card
 	{
 		private var image:Bitmap = new Bitmap(Image.Push.bitmapData);
 		private var counter:TextField = new TextField();
+		private var i:int = 0;
+		
 		public function PushCounter()
 		{
 			//this.image.graphics.lineStyle();
@@ -32,16 +34,35 @@ package scoutbar.view.card
 			this.counter.textColor = 0xFFFFFF;
 			this.counter.selectable = false;
 		}
-		public function setcounter(i:int):void
+		public function decrementCounter():int{
+			this.i--;
+			draw();
+			return this.i;
+		}
+		
+		public function incrementCounter():int{
+			this.i++;
+			draw();
+			return this.i;
+		}
+		
+		
+		public function setcounter(i:int):int
 		{
-			if(i == 0){
+				this.i = i;
+				draw();
+				return this.i;
+		}
+		
+		private function draw():void {
+			if(this.i == 0){
 				this.removeChildren();
 			}else{
 				if(!this.contains(this.counter)){
 					this.addChild(this.image);
 					this.addChild(this.counter);
 				}
-				this.counter.text = ""+i;
+				counter.text = i.toString();
 			}
 		}
 	}

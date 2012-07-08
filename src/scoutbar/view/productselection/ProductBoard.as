@@ -6,8 +6,10 @@ package scoutbar.view.productselection
 	import flash.display.Sprite;
 	import flash.display.Stage;
 	import flash.events.Event;
+	import flash.events.MouseEvent;
 	
 	import scoutbar.data.Global;
+	import scoutbar.data.Product;
 	import scoutbar.view.card.Card;
 	
 	public class ProductBoard extends Sprite
@@ -58,6 +60,7 @@ package scoutbar.view.productselection
 			for(var index:String in Global.PRODUCTS){
 				var card:Card = new Card(Global.PRODUCTS[index],90,90);
 				scrollfield.addChild(card);
+				card.addEventListener(MouseEvent.CLICK, orderItem);
 				cardarr.push(card);
 			}
 			sortcards();
@@ -81,6 +84,12 @@ package scoutbar.view.productselection
 					county++;
 				}
 			}
+		}
+		
+		public function orderItem(e:Event):void{
+			trace("Click");
+			var card:Card = e.currentTarget as Card;
+			ProductSelection.order.AddRow(card.incCount(), card.data as Product);
 		}
 	}
 }

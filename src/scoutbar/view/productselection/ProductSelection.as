@@ -1,15 +1,18 @@
 package scoutbar.view.productselection
 {
 	import flash.display.Sprite;
-	import scoutbar.view.productselection.ProductBoard;
+	
+	import scoutbar.data.Order;
 	import scoutbar.data.User;
 	import scoutbar.events.ProductEvent;
+	import scoutbar.view.productselection.ProductBoard;
 	
 	public class ProductSelection extends Sprite
 	{
 		public var board:ProductBoard = new ProductBoard(20,20,20,270);
 		public var border:ProductBar = new ProductBar(250);
-		public var user:User;
+		public static var user:User;
+		public static var order:Order;
 		
 		public function ProductSelection()
 		{
@@ -18,6 +21,7 @@ package scoutbar.view.productselection
 		}
 		
 		public function setUser(user:User):void{
+			order = new Order(user);
 			dispatchEvent(new ProductEvent(ProductEvent.USER_LOADED));
 		}
 	}
