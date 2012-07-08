@@ -18,7 +18,7 @@ package scoutbar.view.productselection
 		private var bg:Shape = new Shape();
 		private var bg2:Shape = new Shape();
 		private var knopshape:Shape = new Shape();
-		private var image:CardArt = new CardArt(Image.Panda,200,300);
+		private var image:CardArt = new CardArt(Image.Panda,200,266);
 		private var knop:Sprite = new Sprite();
 		private var namefield:TextField = new TextField();
 		

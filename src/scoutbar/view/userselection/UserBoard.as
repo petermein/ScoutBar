@@ -55,7 +55,7 @@ package scoutbar.view.userselection
 		public function createCards():void
 		{
 			for(var index:String in Global.USERS){
-				var card:Card = new Card(Global.USERS[index],90,135);
+				var card:Card = new Card(Global.USERS[index],90,120);
 				card.addEventListener(MouseEvent.CLICK, openOrder);
 				scrollfield.addChild(card);
 				cardarr.push(card);
