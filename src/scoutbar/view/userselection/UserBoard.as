@@ -64,15 +64,15 @@ package scoutbar.view.userselection
 		}
 		public function sortcards(t:String = ""):void
 		{
+<<<<<<< HEAD
 			var xcount:int = (maskingShape.width) / cardarr[0].width;
+=======
+			var xcount:int = (maskingShape.width ) / cardarr[0].width;
+>>>>>>> Board update
 			var ycount:int = (maskingShape.height) / cardarr[0].height;
 			if (xoffset <= cardarr[0].width * 0.2){
 				xcount--;
 				xoffset = (maskingShape.width - (xcount * cardarr[0].width))/2;
-			}
-			if (yoffset <= cardarr[0].height * 0.2){
-				ycount--;
-				yoffset = (maskingShape.height - (ycount * cardarr[0].height))/2;
 			}
 			var maxobj:int = xcount * ycount;
 			currentString = t;
