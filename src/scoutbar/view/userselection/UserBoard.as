@@ -64,7 +64,7 @@ package scoutbar.view.userselection
 		}
 		public function sortcards(t:String = ""):void
 		{
-			var xcount:int = (maskingShape.width - ) / cardarr[0].width;
+			var xcount:int = (maskingShape.width) / cardarr[0].width;
 			var ycount:int = (maskingShape.height) / cardarr[0].height;
 			if (xoffset <= cardarr[0].width * 0.2){
 				xcount--;
