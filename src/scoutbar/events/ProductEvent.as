@@ -8,7 +8,6 @@ package scoutbar.events
 		
 		public static const USER_LOADED:String = "userLoaded";
 
-
 		public function ProductEvent(type:String, bubbles:Boolean=false, cancelable:Boolean=false)
 		{
 			super(type, bubbles, cancelable);

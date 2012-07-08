@@ -25,6 +25,7 @@ package scoutbar
 	import scoutbar.view.splash.Splash;
 	import scoutbar.view.userselection.UserSelection;
 	import scoutbar.view.card.Card;
+	import scoutbar.events.ProductEvent;
 	
 	public class ScoutBar extends Sprite
 	{
@@ -108,8 +109,13 @@ package scoutbar
 		
 		public function switchToProductSelection(data:*):void{
 			trace("Switch to productselection");
-			TweenLite.to(us, 1, {x:0-stage.stageWidth});
-			TweenLite.to(ps, 1, {x:0});
+			ps.addEventListener(ProductEvent.USER_LOADED, function():void{
+				trace('User set to product');
+				TweenLite.to(us, 1, {x:0-stage.stageWidth});
+				TweenLite.to(ps, 1, {x:0});
+			});
+			ps.setUser(data);			
+
 		}
 		
 	}
