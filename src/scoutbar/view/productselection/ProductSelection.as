@@ -2,10 +2,13 @@ package scoutbar.view.productselection
 {
 	import flash.display.Sprite;
 	
+<<<<<<< HEAD
 	import scoutbar.view.productselection.ProductBoard;
 	import scoutbar.data.User;
 	import scoutbar.events.ProductEvent;
 	
+=======
+>>>>>>> ProductBar update
 	public class ProductSelection extends Sprite
 	{
 		public var board:ProductBoard = new ProductBoard(40,100,20,330);
