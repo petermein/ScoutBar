@@ -30,7 +30,7 @@ package scoutbar.view.card
 		public function Card(dao:*)
 		{
 			this.data = dao;
-			this.image = new CardArt(dao.image,130,130);
+			this.image = new CardArt(dao.image,90,90);
 			this.addChild(image);
 			
 			this.bg.graphics.lineStyle();
@@ -41,8 +41,6 @@ package scoutbar.view.card
 
 			image.x = 10;
 			image.y = 10;
-			image.scaleX = 0.3;
-			image.scaleY = 0.3;
 			this.addChild(image);
 			
 			var textformat:TextFormat = new TextFormat();
