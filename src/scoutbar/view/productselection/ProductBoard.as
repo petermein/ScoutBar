@@ -87,7 +87,6 @@ package scoutbar.view.productselection
 		}
 		
 		public function orderItem(e:Event):void{
-			trace("Click");
 			var card:Card = e.currentTarget as Card;
 			ProductSelection.order.AddRow(card.incCount(), card.data as Product);
 		}

@@ -24,6 +24,7 @@ package scoutbar.view.productselection
 		}
 		
 		public static function sendOrder():void{
+			trace('send');
 			var sender:JsonSendEvent = new JsonSendEvent();
 			sender.Send(order);
 		}

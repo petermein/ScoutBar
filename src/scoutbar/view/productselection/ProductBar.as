@@ -4,6 +4,7 @@ package scoutbar.view.productselection
 	import flash.display.Shape;
 	import flash.display.Sprite;
 	import flash.events.Event;
+	import flash.events.MouseEvent;
 	
 	import scoutbar.resource.Image;
 	import scoutbar.view.card.CardArt;
@@ -41,11 +42,17 @@ package scoutbar.view.productselection
 			this.knop.graphics.beginFill(0x000000,0.5);
 			this.knop.graphics.drawRoundRect(20,this.stage.stageHeight - 100,Width-40,80,30,30);
 			this.knop.graphics.endFill();
+			this.knop.addEventListener(MouseEvent.CLICK, send);
 			this.addChild(knop);
 			
 			this.image.x = 20;//2 / (this.Width - this.image.Width)
 			this.image.y = this.image.x;
 			this.addChild(image);
+		}
+		
+		public function send(e:Event):void {
+			trace('send in productselection');
+			ProductSelection.sendOrder();
 		}
 	}
 }
