@@ -26,15 +26,13 @@ package scoutbar.view.card
 			textformat.size = 22;
 			this.counter.width = 30;
 			this.counter.height = 25;
-			this.counter.x = 0;
-			this.counter.y = 4;
+			this.counter.x = 3;
+			this.counter.y = 6;
 			textformat.align = TextFormatAlign.CENTER;
 			this.counter.defaultTextFormat = textformat;
 			this.counter.text = ""
 			this.counter.textColor = 0xFFFFFF;
 			this.counter.selectable = false;
-			this.image.scaleX = 0.8;
-			this.image.scaleY = 0.8;
 		}
 		public function decrementCounter():int{
 			this.i--;
