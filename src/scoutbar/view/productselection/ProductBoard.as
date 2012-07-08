@@ -80,6 +80,12 @@ package scoutbar.view.productselection
 			}
 		}
 		
+		public function clearAll():void{
+			for(var i:String in cardarr){
+				cardarr[i].setCount(0);
+			}
+		}
+		
 		public function orderItem(e:Event):void{
 			var card:Card = e.currentTarget as Card;
 			ProductSelection.order.AddRow(card.incCount(), card.data as Product);

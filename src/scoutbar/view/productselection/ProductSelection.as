@@ -15,8 +15,8 @@ package scoutbar.view.productselection
 	
 	public class ProductSelection extends Sprite
 	{
-		public var board:ProductBoard = new ProductBoard(20,20,20,270);
-		public var border:ProductBar = new ProductBar(250);
+		public static var board:ProductBoard = new ProductBoard(20,20,20,270);
+		public static var border:ProductBar = new ProductBar(250);
 		public static var user:User;
 		public static var order:Order;
 		
@@ -29,6 +29,9 @@ package scoutbar.view.productselection
 		public static function sendOrder():void{
 			var sender:JsonSendEvent = new JsonSendEvent();
 			sender.Send(order);
+			order = null;
+			board.clearAll();
+			Global.SCOUTBAR.switchToUserSelectionFromProduct(null);
 		}
 		
 		public function setUser(user:User):void{

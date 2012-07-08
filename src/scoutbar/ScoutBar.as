@@ -107,6 +107,13 @@ package scoutbar
 			TweenLite.to(ps, 1, {x:stage.stageWidth});
 		}
 		
+		public function switchToUserSelectionFromProduct(e:Event):void{
+			trace("Switch to userselection");
+			//us.addEventListener(MouseEvent.CLICK, switchToProductSelection);
+			TweenLite.to(us, 1, {x:0});
+			TweenLite.to(ps, 1, {x:0 + stage.stageWidth});
+		}
+		
 		public function switchToProductSelection(data:*):void{
 			trace("Switch to productselection");
 			ps.addEventListener(ProductEvent.USER_LOADED, function():void{
