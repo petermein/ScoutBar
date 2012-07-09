@@ -9,7 +9,7 @@ package scoutbar.view.productselection
 	public class padButton extends Sprite
 	{
 		private var background:Shape = new Shape();
-		private var text:TextField = new TextField();
+		public var text:TextField = new TextField();
 		
 		public function padButton(t:String)
 		{

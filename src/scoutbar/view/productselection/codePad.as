@@ -1,6 +1,11 @@
 package scoutbar.view.productselection
 {
+	import flash.display.Shape;
 	import flash.display.Sprite;
+	import flash.events.MouseEvent;
+	import flash.text.TextField;
+	import flash.text.TextFormat;
+	import flash.text.TextFormatAlign;
 
 	public class codePad extends Sprite
 	{
@@ -16,6 +21,9 @@ package scoutbar.view.productselection
 		public var _0:padButton = new padButton("0");
 		public var ok:padButton = new padButton("ok");
 		public var _x:padButton = new padButton("x");
+		private var background:Shape = new Shape();
+		private var text:TextField = new TextField();
+		
 		
 		public function codePad()
 		{
@@ -37,9 +45,9 @@ package scoutbar.view.productselection
 			_8.y = 60;
 			_9.x = 100;
 			_9.y = 60;
-			_0.x = 0;
+			_0.x = 50;
 			_0.y = 90;
-			ok.x = 50;
+			ok.x = 0;
 			ok.y = 90;
 			_x.x = 100;
 			_x.y = 90;
@@ -55,6 +63,49 @@ package scoutbar.view.productselection
 			this.addChild(_0);
 			this.addChild(ok);
 			this.addChild(_x);
+			
+			_1.addEventListener(MouseEvent.CLICK,clickHandeler);
+			_2.addEventListener(MouseEvent.CLICK,clickHandeler);
+			_3.addEventListener(MouseEvent.CLICK,clickHandeler);
+			_4.addEventListener(MouseEvent.CLICK,clickHandeler);
+			_5.addEventListener(MouseEvent.CLICK,clickHandeler);
+			_6.addEventListener(MouseEvent.CLICK,clickHandeler);
+			_7.addEventListener(MouseEvent.CLICK,clickHandeler);
+			_8.addEventListener(MouseEvent.CLICK,clickHandeler);
+			_9.addEventListener(MouseEvent.CLICK,clickHandeler);
+			_0.addEventListener(MouseEvent.CLICK,clickHandeler);
+			ok.addEventListener(MouseEvent.CLICK,clickHandeler);
+			_x.addEventListener(MouseEvent.CLICK,clickHandeler);
+			
+			this.background.graphics.lineStyle();
+			this.background.graphics.beginFill(0xffffff,1);
+			this.background.graphics.drawRoundRect(0,-40,this.width,30,20,20);
+			this.background.graphics.endFill();
+			this.addChild(this.background);
+			
+			var textformat:TextFormat = new TextFormat();
+			textformat.size = 20;
+			textformat.align = TextFormatAlign.CENTER;
+			this.text.defaultTextFormat = textformat;
+			this.text.text = "";
+			this.text.y = -35;
+			this.text.width = this.width;
+			this.text.height = 30;
+			this.text.selectable = false;
+			this.text.displayAsPassword = true;
+			this.addChild(text);
+		}
+		public function clickHandeler(e:MouseEvent):void
+		{
+			if(e.currentTarget.text.text == "ok"){
+				this.text.text = "";
+			}else if(e.currentTarget.text.text == "x"){
+				this.text.text = "";
+			}else{
+				if(this.text.length < 4){
+					this.text.appendText(e.currentTarget.text.text);
+				}
+			}
 		}
 	}
 }
