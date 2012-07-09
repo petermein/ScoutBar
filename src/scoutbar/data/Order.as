@@ -9,7 +9,7 @@ package scoutbar.data
 	public class Order extends EventDispatcher
 	{
 		public var User:int;
-		public var BarUser:int;
+		public var BarUser:int = -1;
 		public var Account:int;
 		public var Rows:Array = new Array();
 		
