@@ -39,6 +39,8 @@ package scoutbar.data
 		
 		public var imgpath:String;
 		
+		public var last_order:String;
+		
 		public var image:Bitmap;
 		
 		[Transient]
@@ -57,6 +59,7 @@ package scoutbar.data
 			this.level = data.level;
 			this.password = data.password;
 			this.rekening = data.rekening;
+			this.last_order = data.last_order;
 			this.imgpath = data.imgpath;
 			this.leeftijd = UserFunctions.calculateAge(this.geboortedatum);
 			
