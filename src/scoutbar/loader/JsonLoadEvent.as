@@ -11,6 +11,7 @@ package scoutbar.loader
 	import flash.net.URLRequest;
 	
 	import scoutbar.data.Global;
+	import scoutbar.data.Order;
 	import scoutbar.data.Product;
 	import scoutbar.data.User;
 	import scoutbar.events.JSONLoaded;
@@ -60,13 +61,16 @@ package scoutbar.loader
 			for(var index:String in myData.data){
 				var myUser:User = new User(myData.data[index]);
 				Global.USERS[myUser.persoon_id]=(myUser);
-				trace(myUser.saldo);
+				trace(myUser.leeftijd);
 				myUser.addEventListener(UserEvent.USER_READY, function():void {
 					count++;
-					//trace(count + "" + total);
 					if(count == total){
 						UserLoaded = true;
+						trace(JSONLoaded.JSON_USERS_LOADED);
+						dispatchEvent(new JSONLoaded(JSONLoaded.JSON_USERS_LOADED));
+						if(total != 1){
 						Test();
+						}
 					}
 				});
 			}
@@ -98,6 +102,37 @@ package scoutbar.loader
 					if(count == total){
 						ProductsLoaded = true;
 						Test();
+					}			
+				});
+			}
+		}
+		
+		public function LoadHistory(id:int):void {
+			this.Loaders['history'] = new URLLoader();
+			var path:String = Global.PRODUCT_URL+id;
+			var Request:URLRequest = new URLRequest(path);
+			this.Loaders['history'].addEventListener(Event.COMPLETE, saveHistory);
+			try {
+				this.Loaders['history'].load(Request);
+			} catch (e:Error) {
+				trace(e);
+			}
+		}
+		
+		private function saveHistory(e : Event):void {
+			var myData:Object = com.adobe.serialization.json.JSON.decode(this.Loaders['history'].data);
+			var count:int = 0;
+			var total:int = 0;
+			for(var i:String in myData.data){
+				total++;
+			}
+			for(var index:String in myData.data){
+				var myHistory:Order = new Order(myData.data[index]);
+				Global.CURRENT_HISTORY.push(myHistory);
+				myHistory.addEventListener(ProductEvent.PRODUCT_READY, function():void {
+					count++;
+					if(count == total){
+						dispatchEvent(new JSONLoaded(JSONLoaded.JSON_HISTORY_LOADED));
 					}			
 				});
 			}

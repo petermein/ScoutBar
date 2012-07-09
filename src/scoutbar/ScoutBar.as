@@ -34,6 +34,8 @@ package scoutbar
 		public static var splash:Splash = new Splash();
 		public static var us:UserSelection;
 		public static var ps:ProductSelection;
+		
+		public var load:JsonLoadEvent;
 
 		
 		//URL request loader voor het php script met de JSON data
@@ -44,7 +46,7 @@ package scoutbar
 			Global.SCOUTBAR = this;
 			this.init();
 			this.createSplash();
-			var load:JsonLoadEvent = new JsonLoadEvent();
+			load = new JsonLoadEvent();
 			load.addEventListener(JSONLoaded.JSON_LOADED, tracetest);
 			load.Load();
 
@@ -62,7 +64,7 @@ package scoutbar
 		protected function init():void
 		{
 			trace("Init dataobjects ..");
-			stage.displayState = StageDisplayState.FULL_SCREEN;
+			//stage.displayState = StageDisplayState.FULL_SCREEN;
 			stage.align = StageAlign.TOP_LEFT;
 			stage.scaleMode = StageScaleMode.NO_SCALE;
 			
@@ -102,27 +104,35 @@ package scoutbar
 		protected function switchToUserSelection(e:Event):void{
 			trace("Switch to userselection");
 			//us.addEventListener(MouseEvent.CLICK, switchToProductSelection);
-			TweenLite.to(splash, 1, {x:0-stage.stageWidth});
-			TweenLite.to(us, 1, {x:0});
-			TweenLite.to(ps, 1, {x:stage.stageWidth});
+			//TweenLite.to(splash, 1, {x:0-stage.stageWidth});
+			splash.x = 0-stage.stageWidth;
+			us.x = 0;
+			ps.x = stage.stageWidth;
+			//TweenLite.to(us, 1, {x:0});
+			//TweenLite.to(ps, 1, {x:stage.stageWidth});
 		}
 		
 		public function switchToUserSelectionFromProduct(e:Event):void{
 			trace("Switch to userselection");
-			//us.addEventListener(MouseEvent.CLICK, switchToProductSelection);
-			TweenLite.to(us, 1, {x:0});
-			TweenLite.to(ps, 1, {x:0 + stage.stageWidth});
+				us.x = 0;
+				ps.x = stage.stageWidth;
+				//TweenLite.to(us, 1, {x:0});
+				//TweenLite.to(ps, 1, {x:0 + stage.stageWidth});	
 		}
 		
 		public function switchToProductSelection(data:*):void{
 			trace("Switch to productselection");
-			ps.addEventListener(ProductEvent.USER_LOADED, function():void{
-				trace('User set to product');
-				TweenLite.to(us, 1, {x:0-stage.stageWidth});
-				TweenLite.to(ps, 1, {x:0});
+			load.addEventListener(JSONLoaded.JSON_USERS_LOADED, function():void {
+				ps.setUser(Global.USERS[data.persoon_id]);
 			});
-			ps.setUser(data);			
-
+			
+			ps.addEventListener(ProductEvent.USER_LOADED, function():void{
+				us.x = stage.stageWidth;
+				ps.x = 0;
+				//TweenLite.to(us, 1, {x:0-stage.stageWidth});
+				//TweenLite.to(ps, 1, {x:0});
+			});
+			load.LoadUsers(data.persoon_id);
 		}
 		
 	}
