@@ -86,32 +86,35 @@ package scoutbar.view.productselection
 			for(var index2:String in cardarr){
 				cardarr[index2].visible = false;
 			}
-			//cardarr = cardarr.filter(searchAge);
-			for(var index3:String in cardarr){
-				cardarr[index3].visible = true;
+			var temparr2:Array = cardarr.filter(searchAge);
+			for(var index3:String in temparr2){
+				temparr2[index3].visible = true;
 			}
 			var temparr:Array = cardarr.filter(searchClass);
 			for(var index:String in temparr){
 				temparr[index].visible = false;
 			}
 			trace("filter geeft "+ temparr);
-			var xcount:int = maskingShape.width / cardarr[0].width;
+			var xcount:int = maskingShape.width / temparr2[0].width;
 			var countx:int = 0;
 			var county:int = 0;
-			var xoffset:int = (maskingShape.width - (xcount * cardarr[0].width))/2;
+			var xoffset:int = (maskingShape.width - (xcount * temparr2[0].width))/2;
 			var precat:int = 1;
-			if (xoffset <= cardarr[0].width * 0.2){
+			if (xoffset <= temparr2[0].width * 0.2){
 				xcount--;
-				xoffset = (maskingShape.width - (xcount * cardarr[0].width))/2;
+				xoffset = (maskingShape.width - (xcount * temparr2[0].width))/2;
 			}
-			for(var i:Number=0; i<cardarr.length;i++){
-				if(precat != cardarr[i].data.categorie){
+			for(var i:Number=0; i<temparr2.length;i++){
+				if(i == 0){
+					precat = temparr2[i].data.categorie;
+				}
+				if(precat != temparr2[i].data.categorie){
 					countx = 0;
 					county++;
 				}
-				cardarr[i].x = (cardarr[i].width * countx)+xoffset;
-				cardarr[i].y = (cardarr[i].height * county)+20;
-				precat = cardarr[i].data.categorie;
+				temparr2[i].x = (temparr2[i].width * countx)+xoffset;
+				temparr2[i].y = (temparr2[i].height * county)+20;
+				precat = temparr2[i].data.categorie;
 				countx++
 				if(countx >= xcount){
 					countx = 0;
