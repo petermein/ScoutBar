@@ -105,21 +105,18 @@ package scoutbar.view.productselection
 				xoffset = (maskingShape.width - (xcount * temparr2[0].width))/2;
 			}
 			for(var i:Number=0; i<temparr2.length;i++){
-				var skip:Boolean = false;
 				if(i == 0){
 					precat = temparr2[i].data.categorie;
 				}
-				
+				if(precat != temparr2[i].data.categorie){
+					countx = 0;
+					county++;
+				}
 				temparr2[i].x = (temparr2[i].width * countx)+xoffset;
 				temparr2[i].y = (temparr2[i].height * county)+20;
 				precat = temparr2[i].data.categorie;
 				countx++
-				if(precat != temparr2[i].data.categorie){
-					countx = 0;
-					county++;
-					skip = true;
-				}
-				if(countx >= xcount && skip == false){
+				if(countx >= xcount){
 					countx = 0;
 					county++;
 				}
