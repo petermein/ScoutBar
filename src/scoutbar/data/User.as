@@ -13,7 +13,7 @@ package scoutbar.data
  	
 	public class User extends EventDispatcher
 	{
-		public var persoon_id:String;
+		public var persoon_id:int;
 		
 		public var voornaam:String;
 		
@@ -46,7 +46,7 @@ package scoutbar.data
 
 		public function User(data:Object)
 		{
-			this.persoon_id = data.persoon_id;
+			this.persoon_id = parseInt(data.persoon_id);
 			this.voornaam = data.voornaam;
 			this.achternaam = data.achternaam;
 			this.email = data.email;
