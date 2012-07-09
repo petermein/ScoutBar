@@ -37,7 +37,7 @@ package scoutbar.view.productselection
 			board.clearAll();
 			Global.SCOUTBAR.switchToUserSelectionFromProduct(null);
 		}
-		
+
 		public function setUser(usert:User):void{
 			order = new Order(usert);
 			border.setUser(usert);
