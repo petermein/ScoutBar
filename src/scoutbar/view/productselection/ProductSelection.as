@@ -42,6 +42,7 @@ package scoutbar.view.productselection
 			order = new Order(usert);
 			border.setUser(usert);
 			user = usert;
+			board.sortcards(user.leeftijd);
 			dispatchEvent(new ProductEvent(ProductEvent.USER_LOADED));
 		}
 	}

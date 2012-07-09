@@ -101,7 +101,7 @@ package scoutbar.view.card
 			textformat3.align = TextFormatAlign.CENTER;
 			text16.defaultTextFormat = textformat3;
 			text16.text = "16+";
-			text16.x = -20;
+			text16.x = -15;
 			text16.y = 70;
 			text16.textColor = 0xFF0000;
 			text16.selectable = false;

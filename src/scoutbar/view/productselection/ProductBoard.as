@@ -24,6 +24,8 @@ package scoutbar.view.productselection
 		private var left:int = 0;
 		private var right:int = 0;
 		
+		private var age:int;
+		
 		public function ProductBoard(t:int,b:int,l:int,r:int)
 		{
 			top = t;
@@ -78,13 +80,21 @@ package scoutbar.view.productselection
 			cardarr.sort(card.compareCategorie);
 			sortcards();
 		}
-		public function sortcards(t:String = " "):void
+		public function sortcards(a:int = 1):void
 		{
+			age = a;
+			for(var index2:String in cardarr){
+				cardarr[index2].visible = false;
+			}
+			//cardarr = cardarr.filter(searchAge);
+			for(var index3:String in cardarr){
+				cardarr[index3].visible = true;
+			}
 			var temparr:Array = cardarr.filter(searchClass);
 			for(var index:String in temparr){
-				temparr[index].visible = false;;
+				temparr[index].visible = false;
 			}
-			//trace("filter geeft "+ temparr);
+			trace("filter geeft "+ temparr);
 			var xcount:int = maskingShape.width / cardarr[0].width;
 			var countx:int = 0;
 			var county:int = 0;
@@ -129,6 +139,14 @@ package scoutbar.view.productselection
 		private function searchClass(item:*,index:int,array:Array):Boolean
 		{
 			if(item.data.categorie == 4){
+				return true;
+			}else{
+				return false;
+			}
+		}
+		private function searchAge(item:*,index:int,array:Array):Boolean
+		{
+			if(item.data.min_leeftijd < age){
 				return true;
 			}else{
 				return false;
