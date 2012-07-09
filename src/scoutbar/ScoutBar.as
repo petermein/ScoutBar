@@ -54,9 +54,6 @@ package scoutbar
 		
 		protected function tracetest(e:Event):void{
 			trace("JSON completely loaded");
-			for(var index:String in Global.USERS){
-				trace(Global.USERS[index].voornaam);
-			}
 			createUserSelection();
 			createProductSelection();
 		}
@@ -80,7 +77,7 @@ package scoutbar
 		protected function createSplash():void
 		{
 			trace("Create splash");
-			splash.addEventListener(MouseEvent.CLICK, switchToUserSelection);
+			//splash.addEventListener(MouseEvent.CLICK, switchToUserSelection);
 			stage.addChild(splash);
 			
 		}

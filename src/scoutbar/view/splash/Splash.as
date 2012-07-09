@@ -9,9 +9,11 @@ package scoutbar.view.splash
 	import flash.events.MouseEvent;
 	import flash.filters.DropShadowFilter;
 	import flash.text.TextField;
-	import flash.text.TextFieldType;
 	import flash.text.TextFieldAutoSize;
+	import flash.text.TextFieldType;
 	import flash.text.TextFormat;
+	
+	import nid.ui.controls.VirtualKeyBoard;
 	
 	import scoutbar.resource.Fonts;
 	import scoutbar.resource.Image;
@@ -24,6 +26,7 @@ package scoutbar.view.splash
 		private var label1:SplashLabel = new SplashLabel("ScoutBar");
 		private var label2:SplashLabel = new SplashLabel("Bestellen & Afrekenen");
 		private var input1:TextField = new TextField();
+		private var preloader:PreLoader = new PreLoader();
 		
 		public function Splash()
 		{
@@ -69,7 +72,18 @@ package scoutbar.view.splash
 				label2.y = label1.y + label1.height/2 + 100;
 				
 				//resize bg
+				
+			preloader.x = this.stage.stageWidth/2;
+			preloader.y = this.stage.stageHeight/2 - 200;
+			this.addChild(preloader);
+			preloader.addEventListener(MouseEvent.CLICK,mouseclick);
+			
+			VirtualKeyBoard.getInstance().init(this);
 
+		}
+		public function mouseclick(e:MouseEvent):void
+		{
+			VirtualKeyBoard.getInstance().target = { field:label1, fieldName:"Test" };
 		}
 		
 		protected override function resize(e : Event):void
