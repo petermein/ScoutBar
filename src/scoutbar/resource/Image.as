@@ -5,9 +5,6 @@ package scoutbar.resource
 	
 	public final class Image
 	{
-		[Embed (source="./assets/background.png" )]
-		private static const _background:Class;
-		public static const Background:Bitmap = new _background() as Bitmap;
 		
 		[Embed (source="./assets/bg.jpg" )]
 		private static const _splashbg:Class;
