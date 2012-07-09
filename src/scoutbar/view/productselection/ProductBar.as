@@ -78,10 +78,10 @@ package scoutbar.view.productselection
 			this.productfield.text = "";
 			this.productfield.x = 20;
 			this.productfield.y = 350;
-			this.productfield.border = false;
+			this.productfield.border = true;
 			this.productfield.borderColor = 0xffffff;
 			this.productfield.width = Width - 40;
-			this.productfield.height = 400;
+			this.productfield.height = 350;
 			this.productfield.textColor = 0xFFFFFF;
 			this.productfield.selectable = false;
 			this.productfield.wordWrap = true;
@@ -91,10 +91,10 @@ package scoutbar.view.productselection
 			this.pricefield.text = "";
 			this.pricefield.x = 170;
 			this.pricefield.y = 350;
-			this.pricefield.border = false;
+			this.pricefield.border = true;
 			this.pricefield.borderColor = 0xffffff;
 			this.pricefield.width = Width - 190;
-			this.pricefield.height = 400;
+			this.pricefield.height = 350;
 			this.pricefield.textColor = 0xFFFFFF;
 			this.pricefield.selectable = false;
 			this.pricefield.wordWrap = true;

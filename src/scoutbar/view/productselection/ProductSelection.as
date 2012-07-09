@@ -10,6 +10,7 @@ package scoutbar.view.productselection
 	import scoutbar.data.Order;
 	import scoutbar.data.User;
 	import scoutbar.events.ProductEvent;
+	import scoutbar.loader.JsonLoadEvent;
 	import scoutbar.loader.JsonSendEvent;
 	import scoutbar.view.productselection.ProductBoard;
 	
@@ -29,6 +30,8 @@ package scoutbar.view.productselection
 		public static function sendOrder():void{
 			var sender:JsonSendEvent = new JsonSendEvent();
 			sender.Send(order);
+			var loader:JsonLoadEvent = new JsonLoadEvent();
+			loader.LoadUsers();
 			order = null;
 			board.clearAll();
 			Global.SCOUTBAR.switchToUserSelectionFromProduct(null);

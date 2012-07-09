@@ -56,6 +56,7 @@ package scoutbar.view.productselection
 				switch(Global.PRODUCTS[index].categorie){
 					case 1:
 						 card = new Card(Global.PRODUCTS[index],90,90,0xff0000);
+						 card.isMin16();
 					break;
 					case 2:
 						 card = new Card(Global.PRODUCTS[index],90,90,0x00ff00);
