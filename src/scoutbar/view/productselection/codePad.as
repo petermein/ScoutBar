@@ -90,7 +90,7 @@ package scoutbar.view.productselection
 			textformat.align = TextFormatAlign.CENTER;
 			this.text.defaultTextFormat = textformat;
 			this.text.text = "";
-			this.text.y = -35;
+			this.text.y = 5;
 			this.text.width = this.width;
 			this.text.height = 30;
 			this.text.selectable = false;
