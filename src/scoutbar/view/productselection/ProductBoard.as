@@ -100,10 +100,7 @@ package scoutbar.view.productselection
 			var county:int = 0;
 			var xoffset:int = (maskingShape.width - (xcount * temparr2[0].width))/2;
 			var precat:int = 1;
-			if (xoffset <= temparr2[0].width * 0.2){
-				xcount--;
-				xoffset = (maskingShape.width - (xcount * temparr2[0].width))/2;
-			}
+			
 			for(var i:Number=0; i<temparr2.length;i++){
 				if(i == 0){
 					precat = temparr2[i].data.categorie;
@@ -111,6 +108,9 @@ package scoutbar.view.productselection
 				if(precat != temparr2[i].data.categorie){
 					countx = 0;
 					county++;
+				}else if (xoffset <= temparr2[0].width * 0.2){
+					xcount--;
+					xoffset = (maskingShape.width - (xcount * temparr2[0].width))/2;
 				}
 				temparr2[i].x = (temparr2[i].width * countx)+xoffset;
 				temparr2[i].y = (temparr2[i].height * county)+20;
