@@ -113,7 +113,7 @@ package scoutbar.view.productselection
 					countx = 0;
 					county++;
 					skip = true;
-				}else
+				}
 				temparr2[i].x = (temparr2[i].width * countx)+xoffset;
 				temparr2[i].y = (temparr2[i].height * county)+20;
 				precat = temparr2[i].data.categorie;
