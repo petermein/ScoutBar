@@ -30,29 +30,29 @@ package scoutbar.view.productselection
 		public function codePad()
 		{
 			_1.x = 0;
-			_1.y = 0;
+			_1.y = 40;
 			_2.x = 50;
-			_2.y = 0;
+			_2.y = 40;
 			_3.x = 100;
-			_3.y = 0;
+			_3.y = 40;
 			_4.x = 0;
-			_4.y = 30;
+			_4.y = 70;
 			_5.x = 50;
-			_5.y = 30;
+			_5.y = 70;
 			_6.x = 100;
-			_6.y = 30;
+			_6.y = 70;
 			_7.x = 0;
-			_7.y = 60;
+			_7.y = 100;
 			_8.x = 50;
-			_8.y = 60;
+			_8.y = 100;
 			_9.x = 100;
-			_9.y = 60;
+			_9.y = 100;
 			_0.x = 50;
-			_0.y = 90;
+			_0.y = 130;
 			ok.x = 0;
-			ok.y = 90;
+			ok.y = 130;
 			_x.x = 100;
-			_x.y = 90;
+			_x.y = 130;
 			this.addChild(_1);
 			this.addChild(_2);
 			this.addChild(_3);
@@ -81,7 +81,7 @@ package scoutbar.view.productselection
 			
 			this.background.graphics.lineStyle();
 			this.background.graphics.beginFill(0xffffff,1);
-			this.background.graphics.drawRoundRect(0,-40,this.width,30,20,20);
+			this.background.graphics.drawRoundRect(0,0,this.width,30,20,20);
 			this.background.graphics.endFill();
 			this.addChild(this.background);
 			

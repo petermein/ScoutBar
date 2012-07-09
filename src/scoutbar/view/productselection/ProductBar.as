@@ -91,7 +91,7 @@ package scoutbar.view.productselection
 			this.productfield.border = true;
 			this.productfield.borderColor = 0xffffff;
 			this.productfield.width = Width - 40;
-			this.productfield.height = 350;
+			this.productfield.height = this.stage.stageHeight - (350 + 400);
 			this.productfield.textColor = 0xFFFFFF;
 			this.productfield.selectable = false;
 			this.productfield.wordWrap = true;
@@ -104,7 +104,7 @@ package scoutbar.view.productselection
 			this.pricefield.border = true;
 			this.pricefield.borderColor = 0xffffff;
 			this.pricefield.width = Width - 190;
-			this.pricefield.height = 350;
+			this.pricefield.height = this.stage.stageHeight - (350 + 400);
 			this.pricefield.textColor = 0xFFFFFF;
 			this.pricefield.selectable = false;
 			this.pricefield.wordWrap = true;
@@ -127,7 +127,7 @@ package scoutbar.view.productselection
 			this.addChild(saldo);
 			
 			this.pad.x = 60;
-			this.pad.y = 760;
+			this.pad.y = this.stage.stageHeight - 370;
 			this.addChild(pad);
 			
 			this.image.x = (this.Width - this.image.Width)/2;

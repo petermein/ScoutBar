@@ -95,18 +95,7 @@ package scoutbar.view.card
 		}
 		public function isMin16():void
 		{
-			var text16:TextField = new TextField();
-			var textformat3:TextFormat = new TextFormat();
-			textformat3.size = 25;
-			textformat3.align = TextFormatAlign.CENTER;
-			text16.defaultTextFormat = textformat3;
-			text16.text = "16+";
-			text16.x = -15;
-			text16.y = 70;
-			text16.textColor = 0xFF0000;
-			text16.selectable = false;
-			text16.wordWrap = true;
-			this.addChild(text16);
+			
 		}
 	}
 }
