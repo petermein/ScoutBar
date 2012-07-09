@@ -52,7 +52,7 @@ package scoutbar.view.productselection
 			
 			this.knopshape.graphics.lineStyle();
 			this.knopshape.graphics.beginFill(0xffffff,1);
-			this.knopshape.graphics.drawRoundRect(20,this.stage.stageHeight - 100,Width-40,80,30,30);
+			this.knopshape.graphics.drawRoundRect(20,this.stage.stageHeight - 70,Width-40,50,30,30);
 			this.knopshape.graphics.endFill();
 			knop.addChild(knopshape);
 			knop.addEventListener(MouseEvent.CLICK, send);
@@ -61,7 +61,7 @@ package scoutbar.view.productselection
 			var cancels:Shape = new Shape();
 			cancels.graphics.lineStyle();
 			cancels.graphics.beginFill(0xffffff,1);
-			cancels.graphics.drawRoundRect(20,this.stage.stageHeight - 200,Width-40,80,30,30);
+			cancels.graphics.drawRoundRect(20,this.stage.stageHeight - 140,Width-40,50,30,30);
 			cancels.graphics.endFill();
 			cancelknop.addChild(cancels);
 			cancelknop.addEventListener(MouseEvent.CLICK, cancel);
@@ -91,7 +91,7 @@ package scoutbar.view.productselection
 			this.productfield.border = true;
 			this.productfield.borderColor = 0xffffff;
 			this.productfield.width = Width - 40;
-			this.productfield.height = this.stage.stageHeight - (350 + 400);
+			this.productfield.height = this.stage.stageHeight - (350 + 340);
 			this.productfield.textColor = 0xFFFFFF;
 			this.productfield.selectable = false;
 			this.productfield.wordWrap = true;
@@ -104,7 +104,7 @@ package scoutbar.view.productselection
 			this.pricefield.border = true;
 			this.pricefield.borderColor = 0xffffff;
 			this.pricefield.width = Width - 190;
-			this.pricefield.height = this.stage.stageHeight - (350 + 400);
+			this.pricefield.height = this.stage.stageHeight - (350 + 340);
 			this.pricefield.textColor = 0xFFFFFF;
 			this.pricefield.selectable = false;
 			this.pricefield.wordWrap = true;
@@ -127,7 +127,7 @@ package scoutbar.view.productselection
 			this.addChild(saldo);
 			
 			this.pad.x = 60;
-			this.pad.y = this.stage.stageHeight - 370;
+			this.pad.y = this.stage.stageHeight - 310;
 			this.addChild(pad);
 			
 			this.image.x = (this.Width - this.image.Width)/2;

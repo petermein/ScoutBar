@@ -49,6 +49,9 @@ package scoutbar.view.card
 		public function setImage(b:Bitmap):void
 		{
 			image.bitmapData = b.bitmapData;
+			var ratio:Number = image.height / image.width;
+			image.width = Width;
+			image.height = Width * ratio;
 		}
 	}
 }
