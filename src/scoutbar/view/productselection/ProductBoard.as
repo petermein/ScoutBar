@@ -109,15 +109,16 @@ package scoutbar.view.productselection
 				if(i == 0){
 					precat = temparr2[i].data.categorie;
 				}
+				
+				temparr2[i].x = (temparr2[i].width * countx)+xoffset;
+				temparr2[i].y = (temparr2[i].height * county)+20;
+				precat = temparr2[i].data.categorie;
+				countx++
 				if(precat != temparr2[i].data.categorie){
 					countx = 0;
 					county++;
 					skip = true;
 				}
-				temparr2[i].x = (temparr2[i].width * countx)+xoffset;
-				temparr2[i].y = (temparr2[i].height * county)+20;
-				precat = temparr2[i].data.categorie;
-				countx++
 				if(countx >= xcount && skip == false){
 					countx = 0;
 					county++;
