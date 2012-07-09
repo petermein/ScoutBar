@@ -29,13 +29,17 @@ package scoutbar.loader
 		}
 		
 		public function Load():void {
-			LoadUsers();
+			LoadUsers(1);
 			LoadProducts();
 		}
 		
-		public function LoadUsers():void {
+		public function LoadUsers(id:int = -1):void {
+				var path:String = Global.USER_URL;
+			if(id != -1){
+				path += "?id=" + id.toString();
+			}
+			var Request:URLRequest = new URLRequest(path);
 			this.Loaders['users'] = (new URLLoader());
-			var Request:URLRequest = new URLRequest(Global.USER_URL);
 			this.Loaders['users'].addEventListener(Event.COMPLETE, saveUsers);
 			try {
 				this.Loaders['users'].load(Request);
@@ -55,7 +59,7 @@ package scoutbar.loader
 			}
 			for(var index:String in myData.data){
 				var myUser:User = new User(myData.data[index]);
-				Global.USERS.push(myUser);
+				Global.USERS[myUser.persoon_id]=(myUser);
 				myUser.addEventListener(UserEvent.USER_READY, function():void {
 					count++;
 					trace(count + "" + total);
