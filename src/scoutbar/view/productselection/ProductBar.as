@@ -20,6 +20,7 @@ package scoutbar.view.productselection
 		private var knopshape:Shape = new Shape();
 		private var image:CardArt = new CardArt(Image.Panda,200,266);
 		private var knop:Sprite = new Sprite();
+		private var cancelknop:Sprite = new Sprite();
 		private var namefield:TextField = new TextField();
 		private var productfield:TextField = new TextField();
 		private var pricefield:TextField = new TextField();
@@ -56,6 +57,15 @@ package scoutbar.view.productselection
 			knop.addChild(knopshape);
 			knop.addEventListener(MouseEvent.CLICK, send);
 			this.addChild(knop);
+			
+			var cancels:Shape = new Shape();
+			cancels.graphics.lineStyle();
+			cancels.graphics.beginFill(0xffffff,1);
+			cancels.graphics.drawRoundRect(20,this.stage.stageHeight - 200,Width-40,80,30,30);
+			cancels.graphics.endFill();
+			cancelknop.addChild(cancels);
+			cancelknop.addEventListener(MouseEvent.CLICK, cancel);
+			this.addChild(cancelknop);
 			
 			var textformat:TextFormat = new TextFormat();
 			textformat.size = 20;
@@ -144,6 +154,12 @@ package scoutbar.view.productselection
 			trace('send in productselection');
 			ProductSelection.sendOrder();
 		}
+		
+		public function cancel(e:Event):void {
+			trace('cancel in productselection');
+			ProductSelection.cancelOrder();
+		}
+		
 		public function updateProductField():void
 		{
 			productfield.text = "";

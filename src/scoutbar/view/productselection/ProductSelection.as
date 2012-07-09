@@ -37,6 +37,15 @@ package scoutbar.view.productselection
 			board.clearAll();
 			Global.SCOUTBAR.switchToUserSelectionFromProduct(null);
 		}
+		
+		public static function cancelOrder():void{
+			var loader:JsonLoadEvent = new JsonLoadEvent();
+			loader.LoadUsers(user.persoon_id);
+			order = null;
+			user = null;
+			board.clearAll();
+			Global.SCOUTBAR.switchToUserSelectionFromProduct(null);
+		}
 
 		public function setUser(usert:User):void{
 			order = new Order(usert);
