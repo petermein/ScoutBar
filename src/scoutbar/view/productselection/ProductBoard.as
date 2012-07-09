@@ -84,7 +84,7 @@ package scoutbar.view.productselection
 			for(var index:String in temparr){
 				temparr[index].visible = false;;
 			}
-			trace("filter geeft "+ temparr);
+			//trace("filter geeft "+ temparr);
 			var xcount:int = maskingShape.width / cardarr[0].width;
 			var countx:int = 0;
 			var county:int = 0;

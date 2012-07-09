@@ -86,7 +86,7 @@ package scoutbar.view.userselection
 			}
 			if(temparr.length != 0){
 				
-				trace(xcount +" || "+ ycount);
+				//trace(xcount +" || "+ ycount);
 				var countx:int = 0;
 				var county:int = 0;
 				var xoffset:int = (maskingShape.width - (xcount * temparr[0].width))/2;

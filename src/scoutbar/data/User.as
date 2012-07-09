@@ -74,9 +74,8 @@ package scoutbar.data
 	
 	private function onComplete(evt:Event):void
 	{
-	 trace('Complete');
+	 //trace('Complete');
 		this.image = Bitmap(imageLoader.content);
-		trace(this.image.width, this.image.height);
 		dispatchEvent(new UserEvent(UserEvent.USER_READY));
 	}
 	

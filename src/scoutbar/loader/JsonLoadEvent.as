@@ -50,7 +50,7 @@ package scoutbar.loader
 		}
 		
 		private function saveUsers(e : Event):void {
-			
+			trace('LoadUsers');
 			var myData:Object = com.adobe.serialization.json.JSON.decode(this.Loaders['users'].data);
 			var count:int = 0;
 			var total:int = 0;
@@ -60,9 +60,10 @@ package scoutbar.loader
 			for(var index:String in myData.data){
 				var myUser:User = new User(myData.data[index]);
 				Global.USERS[myUser.persoon_id]=(myUser);
+				trace(myUser.saldo);
 				myUser.addEventListener(UserEvent.USER_READY, function():void {
 					count++;
-					trace(count + "" + total);
+					//trace(count + "" + total);
 					if(count == total){
 						UserLoaded = true;
 						Test();
@@ -103,7 +104,7 @@ package scoutbar.loader
 		}
 		
 		private function Test():void{
-			trace(this.ProductsLoaded +" "+ this.UserLoaded);
+			//trace(this.ProductsLoaded +" "+ this.UserLoaded);
 			if(this.ProductsLoaded && this.UserLoaded){	
 				var jlevent:Event = new JSONLoaded("allJsonLoaded");
 				dispatchEvent(jlevent);
