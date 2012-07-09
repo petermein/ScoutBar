@@ -100,8 +100,8 @@ package scoutbar.view.productselection
 		public function clickHandeler(e:MouseEvent):void
 		{
 			if(e.currentTarget.text.text == "ok"){
-				this.text.text = "";
 				testCode();
+				this.text.text = "";
 			}else if(e.currentTarget.text.text == "x"){
 				this.text.text = "";
 			}else{
@@ -112,9 +112,11 @@ package scoutbar.view.productselection
 		}
 		private function testCode():void
 		{
+			if(this.text.text.length < 4) return;
 			var succes:Boolean = false;
 			var u:int;
 			for(var index:String in Global.USERS){
+				trace(Global.USERS[index].password + " -- "+ this.text.text);
 				if(Global.USERS[index].password == this.text.text){
 					succes = true;
 					u = Global.USERS[index].persoon_id;

@@ -109,7 +109,7 @@ package scoutbar.loader
 		
 		public function LoadHistory(id:int):void {
 			this.Loaders['history'] = new URLLoader();
-			var path:String = Global.PRODUCT_URL+id;
+			var path:String = Global.HISTORY_URL+id;
 			var Request:URLRequest = new URLRequest(path);
 			this.Loaders['history'].addEventListener(Event.COMPLETE, saveHistory);
 			try {

@@ -64,7 +64,7 @@ package scoutbar
 		protected function init():void
 		{
 			trace("Init dataobjects ..");
-			//stage.displayState = StageDisplayState.FULL_SCREEN;
+			stage.displayState = StageDisplayState.FULL_SCREEN;
 			stage.align = StageAlign.TOP_LEFT;
 			stage.scaleMode = StageScaleMode.NO_SCALE;
 			
