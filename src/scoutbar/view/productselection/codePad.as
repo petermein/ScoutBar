@@ -6,6 +6,8 @@ package scoutbar.view.productselection
 	import flash.text.TextField;
 	import flash.text.TextFormat;
 	import flash.text.TextFormatAlign;
+	
+	import scoutbar.data.Global;
 
 	public class codePad extends Sprite
 	{
@@ -99,12 +101,26 @@ package scoutbar.view.productselection
 		{
 			if(e.currentTarget.text.text == "ok"){
 				this.text.text = "";
+				testCode();
 			}else if(e.currentTarget.text.text == "x"){
 				this.text.text = "";
 			}else{
 				if(this.text.length < 4){
 					this.text.appendText(e.currentTarget.text.text);
 				}
+			}
+		}
+		private function testCode():void
+		{
+			var succes:Boolean = false;
+			for(var index:String in Global.USERS){
+				if(Global.USERS[index].password == this.text.text){
+					succes = true;
+				break;	
+				}
+			}
+			if(succes){
+				ProductSelection.board.showMoney();
 			}
 		}
 	}

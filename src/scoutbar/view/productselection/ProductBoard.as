@@ -79,6 +79,11 @@ package scoutbar.view.productselection
 		}
 		public function sortcards(t:String = " "):void
 		{
+			var temparr:Array = cardarr.filter(searchClass);
+			for(var index:String in temparr){
+				temparr[index].visible = false;;
+			}
+			trace("filter geeft "+ temparr);
 			var xcount:int = maskingShape.width / cardarr[0].width;
 			var countx:int = 0;
 			var county:int = 0;
@@ -103,7 +108,12 @@ package scoutbar.view.productselection
 				}
 			}
 		}
-		
+		public function showMoney():void{
+			var temparr:Array = cardarr.filter(searchClass);
+			for(var index:String in temparr){
+				temparr[index].visible = true;
+			}
+		}
 		public function clearAll():void{
 			for(var i:String in cardarr){
 				cardarr[i].setCount(0);
@@ -114,6 +124,14 @@ package scoutbar.view.productselection
 			var card:Card = e.currentTarget as Card;
 			ProductSelection.order.AddRow(card.incCount(), card.data as Product);
 			ProductSelection.border.updateProductField();
+		}
+		private function searchClass(item:*,index:int,array:Array):Boolean
+		{
+			if(item.data.categorie == 4){
+				return true;
+			}else{
+				return false;
+			}
 		}
 	}
 }

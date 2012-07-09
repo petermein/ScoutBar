@@ -133,7 +133,7 @@ package scoutbar.view.productselection
 				saldo.textColor = 0xffffff;
 			}
 			saldo.text = "€ "+user.saldo.toFixed(2);
-			
+			ProductSelection.board.sortcards();
 			productfield.text = "";
 			pricefield.text = "";
 			namefield.text = user.voornaam + " " + user.achternaam;
