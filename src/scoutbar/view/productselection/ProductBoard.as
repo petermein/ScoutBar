@@ -94,31 +94,39 @@ package scoutbar.view.productselection
 			for(var index:String in temparr){
 				temparr[index].visible = false;
 			}
-			trace("filter geeft "+ temparr);
+			//trace("filter geeft "+ temparr);
 			var xcount:int = maskingShape.width / temparr2[0].width;
 			var countx:int = 0;
 			var county:int = 0;
 			var xoffset:int = (maskingShape.width - (xcount * temparr2[0].width))/2;
 			var precat:int = 1;
 			if (xoffset <= temparr2[0].width * 0.2){
+				
 				xcount--;
 				xoffset = (maskingShape.width - (xcount * temparr2[0].width))/2;
 			}
+			var skip:Boolean = false;
 			for(var i:Number=0; i<temparr2.length;i++){
 				if(i == 0){
 					precat = temparr2[i].data.categorie;
 				}
-				if(precat != temparr2[i].data.categorie){
+				if(precat != temparr2[i].data.categorie && skip == false){
+					//trace("skip categorie");
 					countx = 0;
 					county++;
 				}
+				
 				temparr2[i].x = (temparr2[i].width * countx)+xoffset;
 				temparr2[i].y = (temparr2[i].height * county)+20;
 				precat = temparr2[i].data.categorie;
 				countx++
 				if(countx >= xcount){
+					//trace("skip width");
 					countx = 0;
 					county++;
+					skip = true;
+				}else{
+					skip = false;
 				}
 			}
 		}

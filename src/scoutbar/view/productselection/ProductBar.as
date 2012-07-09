@@ -160,6 +160,11 @@ package scoutbar.view.productselection
 			ProductSelection.cancelOrder();
 		}
 		
+		public function hideSaldo(bool:Boolean):void
+		{
+			this.saldo.visible = bool;	
+		}
+		
 		public function updateProductField():void
 		{
 			productfield.text = "";

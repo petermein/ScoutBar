@@ -116,7 +116,7 @@ package scoutbar.view.productselection
 			var succes:Boolean = false;
 			var u:int;
 			for(var index:String in Global.USERS){
-				trace(Global.USERS[index].password + " -- "+ this.text.text);
+				//trace(Global.USERS[index].password + " -- "+ this.text.text);
 				if(Global.USERS[index].password == this.text.text){
 					succes = true;
 					u = Global.USERS[index].persoon_id;

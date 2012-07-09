@@ -52,6 +52,12 @@ package scoutbar.view.productselection
 			border.setUser(usert);
 			user = usert;
 			board.sortcards(user.leeftijd);
+			trace(user.level);
+			if(usert.level == 1){
+				border.hideSaldo(false);
+			} else {
+				border.hideSaldo(true);
+			}
 			dispatchEvent(new ProductEvent(ProductEvent.USER_LOADED));
 		}
 	}
