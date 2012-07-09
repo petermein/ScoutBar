@@ -71,11 +71,11 @@ package scoutbar.view.productselection
 						 card = new Card(Global.PRODUCTS[index],90,90);
 					break;
 				}
-				
 				scrollfield.addChild(card);
 				card.addEventListener(MouseEvent.CLICK, orderItem);
 				cardarr.push(card);
 			}
+			cardarr.sort(card.compareCategorie);
 			sortcards();
 		}
 		public function sortcards(t:String = " "):void

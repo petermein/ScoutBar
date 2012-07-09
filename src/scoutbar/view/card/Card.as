@@ -83,6 +83,16 @@ package scoutbar.view.card
 				return 1;
 			}
 		}
+		public function compareCategorie(a:Card,b:Card):int
+		{
+			if(a.data.categorie < b.data.categorie){
+				return -1;
+			}else if(a.data.categorie > b.data.categorie){
+				return 1;
+			}else{
+				return 0;
+			}
+		}
 		public function isMin16():void
 		{
 			var text16:TextField = new TextField();

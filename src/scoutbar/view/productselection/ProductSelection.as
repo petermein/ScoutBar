@@ -31,15 +31,17 @@ package scoutbar.view.productselection
 			var sender:JsonSendEvent = new JsonSendEvent();
 			sender.Send(order);
 			var loader:JsonLoadEvent = new JsonLoadEvent();
-			loader.LoadUsers();
+			loader.LoadUsers(user.persoon_id);
 			order = null;
+			user = null;
 			board.clearAll();
 			Global.SCOUTBAR.switchToUserSelectionFromProduct(null);
 		}
 		
-		public function setUser(user:User):void{
-			order = new Order(user);
-			border.setUser(user);
+		public function setUser(usert:User):void{
+			order = new Order(usert);
+			border.setUser(usert);
+			user = usert;
 			dispatchEvent(new ProductEvent(ProductEvent.USER_LOADED));
 		}
 	}

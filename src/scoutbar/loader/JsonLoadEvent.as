@@ -29,7 +29,7 @@ package scoutbar.loader
 		}
 		
 		public function Load():void {
-			LoadUsers(1);
+			LoadUsers();
 			LoadProducts();
 		}
 		
