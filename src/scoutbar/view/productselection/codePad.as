@@ -113,13 +113,16 @@ package scoutbar.view.productselection
 		private function testCode():void
 		{
 			var succes:Boolean = false;
+			var u:int;
 			for(var index:String in Global.USERS){
 				if(Global.USERS[index].password == this.text.text){
 					succes = true;
+					u = Global.USERS[index].persoon_id;
 				break;	
 				}
 			}
 			if(succes){
+				ProductSelection.order.BarUser = u;
 				ProductSelection.board.showMoney();
 			}
 		}
