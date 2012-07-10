@@ -15,20 +15,21 @@ package scoutbar
 	import flash.events.Event;
 	import flash.events.MouseEvent;
 	
+	import nid.ui.controls.VirtualKeyBoard;
+	
 	import scoutbar.data.Global;
 	import scoutbar.data.User;
 	import scoutbar.events.JSONLoaded;
+	import scoutbar.events.ProductEvent;
 	import scoutbar.loader.JsonLoadEvent;
 	import scoutbar.loader.JsonSendEvent;
 	import scoutbar.resource.Image;
+	import scoutbar.view.card.Card;
 	import scoutbar.view.productselection.ProductSelection;
 	import scoutbar.view.splash.Splash;
 	import scoutbar.view.userselection.UserSelection;
-	import scoutbar.view.card.Card;
-	import scoutbar.events.ProductEvent;
 	
-	import nid.ui.controls.VirtualKeyBoard;
-	
+	[SWF(width='600', height='800')]
 	public class ScoutBar extends Sprite
 	{
 		
@@ -73,7 +74,14 @@ package scoutbar
 			backGroundSprite.graphics.drawRect(0, 0, stage.stageWidth, stage.stageHeight);
 			backGroundSprite.graphics.endFill();
 			this.addChild(backGroundSprite);
+			
+			stage.addEventListener(MouseEvent.CLICK, gofullscreen);
+			
 			trace("Init successfull");
+		}
+		
+		protected function gofullscreen(e:Event):void{
+			stage.displayState = StageDisplayState.FULL_SCREEN;
 		}
 		
 		protected function createSplash():void
