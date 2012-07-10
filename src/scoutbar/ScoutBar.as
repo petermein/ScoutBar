@@ -26,6 +26,7 @@ package scoutbar
 	import scoutbar.resource.Image;
 	import scoutbar.view.card.Card;
 	import scoutbar.view.productselection.ProductSelection;
+	import scoutbar.view.screensaver.Screensaver;
 	import scoutbar.view.splash.Splash;
 	import scoutbar.view.userselection.UserSelection;
 	
@@ -37,6 +38,7 @@ package scoutbar
 		public static var splash:Splash = new Splash();
 		public static var us:UserSelection;
 		public static var ps:ProductSelection;
+		public static var screensaver:Screensaver;
 		
 		public var load:JsonLoadEvent;
 
@@ -59,6 +61,7 @@ package scoutbar
 			trace("JSON completely loaded");
 			createUserSelection();
 			createProductSelection();
+			screensaver = new Screensaver(stage);
 		}
 		
 		protected function init():void
