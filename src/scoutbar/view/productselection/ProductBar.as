@@ -22,6 +22,7 @@ package scoutbar.view.productselection
 		private var knop:Sprite = new Sprite();
 		private var cancelknop:Sprite = new Sprite();
 		private var namefield:TextField = new TextField();
+		private var lastorder:TextField = new TextField();
 		private var productfield:TextField = new TextField();
 		private var pricefield:TextField = new TextField();
 		private var saldo:TextField = new TextField();
@@ -116,7 +117,7 @@ package scoutbar.view.productselection
 			this.saldo.defaultTextFormat = textformat3;
 			this.saldo.text = "";
 			this.saldo.x = 0;
-			this.saldo.y = 315;
+			this.saldo.y = 310;
 			this.saldo.border = false;
 			this.saldo.borderColor = 0xffffff;
 			this.saldo.width = Width;
@@ -125,6 +126,22 @@ package scoutbar.view.productselection
 			this.saldo.selectable = false;
 			this.saldo.wordWrap = true;
 			this.addChild(saldo);
+			
+			var textformat4:TextFormat = new TextFormat();
+			textformat4.size = 10;
+			textformat4.align = TextFormatAlign.CENTER;
+			this.lastorder.defaultTextFormat = textformat4;
+			this.lastorder.text = "(12-02-1990 14:32)";
+			this.lastorder.x = 0;
+			this.lastorder.y = 335;
+			this.lastorder.border = false;
+			this.lastorder.borderColor = 0xffffff;
+			this.lastorder.width = Width;
+			this.lastorder.height = 30;
+			this.lastorder.textColor = 0xFFFFFF;
+			this.lastorder.selectable = false;
+			this.lastorder.wordWrap = true;
+			this.addChild(lastorder);
 			
 			this.pad.x = 60;
 			this.pad.y = this.stage.stageHeight - 310;
@@ -146,6 +163,7 @@ package scoutbar.view.productselection
 			ProductSelection.board.sortcards();
 			productfield.text = "";
 			pricefield.text = "";
+			lastorder.text = user.last_order;
 			namefield.text = user.voornaam + " " + user.achternaam;
 			image.setImage(user.image);
 		}
