@@ -5,9 +5,11 @@ package scoutbar.view.userselection
 	import flash.display.Sprite;
 	import flash.events.Event;
 	import flash.events.MouseEvent;
+	import flash.events.TimerEvent;
 	import flash.text.TextField;
 	import flash.text.TextFormat;
 	import flash.text.TextFormatAlign;
+	import flash.utils.Timer;
 	
 	import nid.ui.controls.VirtualKeyBoard;
 	import nid.ui.controls.vkb.KeyBoardEvent;
@@ -21,8 +23,8 @@ package scoutbar.view.userselection
 		public var menu:Shape = new Shape();
 		public var text:TextField = new TextField();
 		public var keyboard:VirtualKeyBoard = VirtualKeyBoard.getInstance();
-
-
+		public var clockTimer:Timer = new Timer(1000, 0);
+		public var timeTextfield:TextField = new TextField();
 		
 		public function UserSelection()
 		{
@@ -68,6 +70,33 @@ package scoutbar.view.userselection
 			this.text.selectable = false;
 			this.text.wordWrap = true;
 			this.addChild(text);
+			
+			timeTextfield.defaultTextFormat = textformat3;
+			timeTextfield.x = stage.stageWidth - 100;
+			timeTextfield.y = 5;
+			timeTextfield.textColor = 0xFFFFFF;
+			timeTextfield.selectable = false;
+			timeTextfield.text = getFormattedTime();
+			this.addChild(timeTextfield);
+			
+			clockTimer.addEventListener(TimerEvent.TIMER, onClockTimer);
+			clockTimer.start();
+		}
+		public function onClockTimer(e:TimerEvent):void {
+			timeTextfield.text = getFormattedTime();
+		}
+		
+		public function getFormattedTime():String {
+			var now:Date = new Date();
+			var hrs:String = String(now.getHours());
+			if (hrs.length < 2) {
+				hrs = "0" + hrs;
+			}
+			var mins:String = String(now.getMinutes());
+			if (mins.length < 2) {
+				mins = "0" + mins;
+			}
+			return hrs + ":" + mins;
 		}
 	}
 }
