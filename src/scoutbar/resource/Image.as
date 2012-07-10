@@ -21,5 +21,9 @@ package scoutbar.resource
 		[Embed (source="./assets/gloss.png" )]
 		private static const _gloss:Class;
 		public static const Gloss:Bitmap = new _gloss() as Bitmap;
+		
+		[Embed (source="./assets/logo trui.jpg" )]
+		private static const _logo:Class;
+		public static const Logo:Bitmap = new _logo() as Bitmap;
 	}
 }
