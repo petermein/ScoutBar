@@ -118,13 +118,14 @@ package nid.ui.controls.vkb
 			bg = new Shape();
 			addChild(bg);
 			
-			inputArea = new InputArea();
-			addChild(inputArea);
+			//inputArea = new InputArea();
+			//inputArea.visible = false;
+			//addChild(inputArea);
 			
 			close = new DarkKey("back", 35, 40, new close_icon());
 			close.y = 0;
 			close.addEventListener(MouseEvent.CLICK, deactivate);
-			inputArea.addChild(close);
+			//inputArea.addChild(close);
 			//backBtn = new Button2('BACK');
 			//backBtn.addEventListener(MouseEvent.CLICK, deactivate);
 			//backBtn.y = 15;
@@ -181,7 +182,7 @@ package nid.ui.controls.vkb
 						case '{space}':	icon = new space_icon();	break;
 						case '{tab}':	icon = new tab_icon();		break;
 					}
-					trace(currentLayout[raws][columns].c,'icon:',icon);
+					//trace(currentLayout[raws][columns].c,'icon:',icon);
 					key = KeyFactory.getKey(ko.c, k_w, k_h, ko.t, icon);
 					
 					key.x = x_pox;
@@ -202,18 +203,15 @@ package nid.ui.controls.vkb
 				keyholder.addChild(raw);
 			}
 			
-			keyholder. y = inputArea.height + 20;
-			addChild(keyholder);
-			
 			bg.graphics.clear();
 			bg.graphics.beginFill(0x000000);
 			bg.graphics.drawRect(0, 0, _stage.stageWidth, keyholder.height + 40);
 			bg.graphics.endFill();
-			bg.y = inputArea.height;
+			bg.y = 0;
 			
-			inputArea.width = _stage.stageWidth;
-			
-			close.x = _stage.stageWidth - close.width - 5;
+			keyholder. y = 20;
+			addChild(keyholder);
+		
 			
 		}
 		

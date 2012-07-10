@@ -6,3 +6,5 @@ src/scoutbar/view/.DS_Store
 debug/scoutbar/view/.DS_Store
 
 debug/FlexUnitCompilerApplication.swf
+
+debug/*

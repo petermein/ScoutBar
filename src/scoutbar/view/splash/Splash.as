@@ -12,9 +12,7 @@ package scoutbar.view.splash
 	import flash.text.TextFieldAutoSize;
 	import flash.text.TextFieldType;
 	import flash.text.TextFormat;
-	
-	import nid.ui.controls.VirtualKeyBoard;
-	
+		
 	import scoutbar.resource.Fonts;
 	import scoutbar.resource.Image;
 	import scoutbar.view.ScaleableSprite;
@@ -71,20 +69,15 @@ package scoutbar.view.splash
 				label2.x = label1.x;
 				label2.y = label1.y + label1.height/2 + 100;
 				
-				//resize bg
+			//resize bg
 				
 			preloader.x = this.stage.stageWidth/2;
 			preloader.y = this.stage.stageHeight/2 - 200;
 			this.addChild(preloader);
-			preloader.addEventListener(MouseEvent.CLICK,mouseclick);
-			
-			VirtualKeyBoard.getInstance().init(this);
+		
 
 		}
-		public function mouseclick(e:MouseEvent):void
-		{
-			VirtualKeyBoard.getInstance().target = { field:label1, fieldName:"Test" };
-		}
+
 		
 		protected override function resize(e : Event):void
 		{

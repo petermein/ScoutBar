@@ -27,10 +27,12 @@ package scoutbar
 	import scoutbar.view.card.Card;
 	import scoutbar.events.ProductEvent;
 	
+	import nid.ui.controls.VirtualKeyBoard;
+	
 	public class ScoutBar extends Sprite
 	{
 		
-		public static var STAGE:Stage;
+		public static var stage:Stage;
 		public static var splash:Splash = new Splash();
 		public static var us:UserSelection;
 		public static var ps:ProductSelection;
@@ -77,7 +79,7 @@ package scoutbar
 		protected function createSplash():void
 		{
 			trace("Create splash");
-			//splash.addEventListener(MouseEvent.CLICK, switchToUserSelection);
+			splash.addEventListener(MouseEvent.CLICK, switchToUserSelection);
 			stage.addChild(splash);
 			
 		}

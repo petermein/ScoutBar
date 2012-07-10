@@ -1,6 +1,7 @@
 package  nid.ui.controls
 {
 	import caurina.transitions.Tweener;
+	
 	import flash.display.DisplayObject;
 	import flash.display.Sprite;
 	import flash.display.Stage;
@@ -8,6 +9,7 @@ package  nid.ui.controls
 	import flash.display.StageScaleMode;
 	import flash.events.Event;
 	import flash.text.TextField;
+	
 	import nid.ui.controls.vkb.KeyBoardEvent;
 	import nid.ui.controls.vkb.KeyBoardUI;
 	
@@ -40,7 +42,6 @@ package  nid.ui.controls
 		public function VirtualKeyBoard() 
 		{
 			configUI();
-			
 		}
 		
 		private function configUI():void 
@@ -98,7 +99,7 @@ package  nid.ui.controls
 				break;
 			}
 			
-			keyboard.inputArea.targetField.text = referenceText;
+			//keyboard.inputArea.targetField.text = referenceText;
 			
 			if (targetField != null)
 			{
@@ -106,21 +107,21 @@ package  nid.ui.controls
 			}
 		}
 		
+
+		
 		public function set target(obj:Object):void
 		{
 			if (isActive) return;
 			
 			targetField = obj.field;
 			referenceText = targetField.text;
-			keyboard.inputArea.fieldName.text = obj.fieldName;
-			keyboard.inputArea.targetField.text = referenceText;
-			keyboard.inputArea.targetField.displayAsPassword = targetField.displayAsPassword;
-			keyboard.inputArea.targetField.restrict = targetField.restrict;
+			//keyboard.inputArea.fieldName.text = obj.fieldName;
+			//keyboard.inputArea.targetField.text = referenceText;
+			//keyboard.inputArea.targetField.displayAsPassword = targetField.displayAsPassword;
+			//keyboard.inputArea.targetField.restrict = targetField.restrict;
 			
 			keyboard.build(obj.keyboardType);
-			
-			show();
-		}
+			}
 		
 		public function resize(e:Event=null):void
 		{
@@ -130,11 +131,10 @@ package  nid.ui.controls
 				keyboard.y = _stage.stageHeight  - keyboard.height;
 			}
 		}
+		
 		public function init(target:DisplayObject):void
 		{
 			_stage 			 = target.stage;
-			_stage.scaleMode = StageScaleMode.NO_SCALE;
-			_stage.align 	 = StageAlign.TOP_LEFT;
 			keyboard._stage  = _stage;
 			_stage.addEventListener(Event.RESIZE, resize);
 		}
@@ -143,13 +143,21 @@ package  nid.ui.controls
 			keyboard.y = _stage.stageHeight;
 			keyboard.alpha = 0;
 			_stage.addChild(keyboard);
-			Tweener.addTween(keyboard, { alpha:1, y:_stage.stageHeight  - keyboard.height, time:0.5, transition:"easeOutQuart" } );
+			keyboard.y = _stage.stageHeight  - keyboard.height;
+			keyboard.alpha = 1;
 			isActive = true;
 		}
+		
+		public function getheight():int
+		{
+			return keyboard.height;
+		}
+		
 		public function hide():void
 		{
 			Tweener.addTween(keyboard, {alpha:0, y:_stage.stageHeight + 50, time:0.5, transition:"easeOutQuart",onComplete:flush } );
 		}
+		
 		private function flush():void
 		{
 			isActive = false;
