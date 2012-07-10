@@ -5,11 +5,13 @@ package scoutbar.view.productselection
 	import flash.display.Sprite;
 	import flash.events.Event;
 	import flash.events.MouseEvent;
+	import flash.filters.GlowFilter;
 	import flash.text.TextField;
 	import flash.text.TextFormat;
 	import flash.text.TextFormatAlign;
 	
 	import scoutbar.data.User;
+	import scoutbar.resource.Fonts;
 	import scoutbar.resource.Image;
 	import scoutbar.view.card.CardArt;
 
@@ -27,6 +29,8 @@ package scoutbar.view.productselection
 		private var pricefield:TextField = new TextField();
 		private var saldo:TextField = new TextField();
 		private var pad:codePad = new codePad();
+		private var streeptext:TextField = new TextField();
+		private var myFont:String = Fonts._mistral;
 		
 		private var Width:int;
 		
@@ -37,6 +41,7 @@ package scoutbar.view.productselection
 		}
 		public function addedHandler(e:Event):void
 		{
+			
 			this.x = this.stage.stageWidth - Width;
 			trace("create product barr");
 			this.bg.graphics.lineStyle();
@@ -51,13 +56,33 @@ package scoutbar.view.productselection
 			this.bg2.graphics.endFill();
 			this.addChild(bg2);
 			
+			var myGlow:GlowFilter = new GlowFilter();
+			myGlow.color = 0x9e6e57;
+			myGlow.strength = 255;
+			this.knopshape.filters = [myGlow];
 			this.knopshape.graphics.lineStyle();
 			this.knopshape.graphics.beginFill(0xffffff,1);
-			this.knopshape.graphics.drawRoundRect(20,this.stage.stageHeight - 70,Width-40,50,30,30);
+			this.knopshape.graphics.drawRoundRect(20 - (this.stage.stageWidth - Width),this.stage.stageHeight - 70,stage.stageWidth-40,50,30,30);
 			this.knopshape.graphics.endFill();
 			knop.addChild(knopshape);
 			knop.addEventListener(MouseEvent.CLICK, send);
 			this.addChild(knop);
+			
+			var textformat6:TextFormat = new TextFormat();
+			textformat6.size = 50;
+			textformat6.align = TextFormatAlign.CENTER;
+			textformat6.font = "Mistral";
+			this.streeptext.embedFonts = true;
+			this.streeptext.defaultTextFormat = textformat6;
+			this.streeptext.text = "Streep";
+			this.streeptext.x = 20 - (this.stage.stageWidth - Width);
+			this.streeptext.y = this.stage.stageHeight - 80;
+			this.streeptext.width = stage.stageWidth-40;
+			this.streeptext.height = 50;
+			this.streeptext.textColor = 0x000000;
+			this.streeptext.selectable = false;
+			this.streeptext.wordWrap = true;
+			knop.addChild(streeptext);
 			
 			var cancels:Shape = new Shape();
 			cancels.graphics.lineStyle();
@@ -88,11 +113,11 @@ package scoutbar.view.productselection
 			this.productfield.defaultTextFormat = textformat2;
 			this.productfield.text = "";
 			this.productfield.x = 20;
-			this.productfield.y = 350;
+			this.productfield.y = 370;
 			this.productfield.border = true;
 			this.productfield.borderColor = 0xffffff;
 			this.productfield.width = Width - 40;
-			this.productfield.height = this.stage.stageHeight - (350 + 340);
+			this.productfield.height = this.stage.stageHeight - (370 + 340);
 			this.productfield.textColor = 0xFFFFFF;
 			this.productfield.selectable = false;
 			this.productfield.wordWrap = true;
@@ -101,11 +126,11 @@ package scoutbar.view.productselection
 			this.pricefield.defaultTextFormat = textformat2;
 			this.pricefield.text = "";
 			this.pricefield.x = 170;
-			this.pricefield.y = 350;
+			this.pricefield.y = 370;
 			this.pricefield.border = true;
 			this.pricefield.borderColor = 0xffffff;
 			this.pricefield.width = Width - 190;
-			this.pricefield.height = this.stage.stageHeight - (350 + 340);
+			this.pricefield.height = this.stage.stageHeight - (370 + 340);
 			this.pricefield.textColor = 0xFFFFFF;
 			this.pricefield.selectable = false;
 			this.pricefield.wordWrap = true;
@@ -117,11 +142,11 @@ package scoutbar.view.productselection
 			this.saldo.defaultTextFormat = textformat3;
 			this.saldo.text = "";
 			this.saldo.x = 0;
-			this.saldo.y = 310;
+			this.saldo.y = 315;
 			this.saldo.border = false;
 			this.saldo.borderColor = 0xffffff;
 			this.saldo.width = Width;
-			this.saldo.height = 30;
+			this.saldo.height = 40;
 			this.saldo.textColor = 0xFFFFFF;
 			this.saldo.selectable = false;
 			this.saldo.wordWrap = true;
@@ -133,7 +158,7 @@ package scoutbar.view.productselection
 			this.lastorder.defaultTextFormat = textformat4;
 			this.lastorder.text = "(12-02-1990 14:32)";
 			this.lastorder.x = 0;
-			this.lastorder.y = 335;
+			this.lastorder.y = 350;
 			this.lastorder.border = false;
 			this.lastorder.borderColor = 0xffffff;
 			this.lastorder.width = Width;

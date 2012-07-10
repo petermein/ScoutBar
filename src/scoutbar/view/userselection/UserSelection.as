@@ -25,6 +25,7 @@ package scoutbar.view.userselection
 		public var keyboard:VirtualKeyBoard = VirtualKeyBoard.getInstance();
 		public var clockTimer:Timer = new Timer(1000, 0);
 		public var timeTextfield:TextField = new TextField();
+		public var newsbar:NewsTicker = new NewsTicker(["tes   asdfasdfasdfasdf   t123","Ermasdfasdfasdfagnie    tgdr      oasdfasdfsadfasdfnkenwordena;lk     jsadfasdfsadfasdfasdfsadfasdfasdfasdfsdf   l;kj","nogmesadfasdfasdfsadf       rtro   ep","stop  d  d  d  ||"]);
 		
 		public function UserSelection()
 		{
@@ -53,23 +54,16 @@ package scoutbar.view.userselection
 		{
 			this.menu.graphics.lineStyle();
 			this.menu.graphics.beginFill(0x000000,0.5);
-			this.menu.graphics.drawRect(0,0,stage.stageWidth,40);
+			this.menu.graphics.drawRect(0,0,stage.stageWidth,50);
 			this.menu.graphics.endFill();
 			this.addChild(menu);
 			
 			var textformat3:TextFormat = new TextFormat();
 			textformat3.size = 30;
 			textformat3.align = TextFormatAlign.CENTER;
-			this.text.defaultTextFormat = textformat3;
-			this.text.text = "Wij schenken geen alcohol onder de 16 !!!";
-			this.text.x = 0;
-			this.text.y = 5;
-			this.text.width = stage.stageWidth;
-			this.text.height = 40;
-			this.text.textColor = 0xFFFFFF;
-			this.text.selectable = false;
-			this.text.wordWrap = true;
-			this.addChild(text);
+		
+			
+			this.addChild(newsbar);
 			
 			timeTextfield.defaultTextFormat = textformat3;
 			timeTextfield.x = stage.stageWidth - 100;
