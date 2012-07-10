@@ -113,6 +113,8 @@ package scoutbar
 		
 		public function switchToUserSelectionFromProduct(e:Event):void{
 			trace("Switch to userselection");
+				us.board.sortcards("");
+				us.search.text.text = "";
 				us.x = 0;
 				ps.x = stage.stageWidth;
 				//TweenLite.to(us, 1, {x:0});

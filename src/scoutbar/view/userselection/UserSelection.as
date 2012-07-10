@@ -10,6 +10,7 @@ package scoutbar.view.userselection
 	import flash.text.TextFormatAlign;
 	
 	import nid.ui.controls.VirtualKeyBoard;
+	import nid.ui.controls.vkb.KeyBoardEvent;
 	
 	import scoutbar.data.Global;
 
@@ -31,6 +32,7 @@ package scoutbar.view.userselection
 			this.addChild(keyboard);
 			VirtualKeyBoard.getInstance().init(Global.SCOUTBAR.stage);
 			VirtualKeyBoard.getInstance().target = { field:search.text, fieldName:"Test" };
+			VirtualKeyBoard.getInstance().addEventListener(KeyBoardEvent.UPDATE, updateusers);
 			search.text.addEventListener(Event.CHANGE, updateusers);
 			addEventListener(Event.ADDED_TO_STAGE, addedHandler, false, 0, true);
 		}
@@ -41,7 +43,6 @@ package scoutbar.view.userselection
 			keyboard.y = Global.SCOUTBAR.stage.stageHeight - 300;
 		}
 
-		
 		public function updateusers(e:Event):void
 		{
 			board.sortcards(search.text.text);

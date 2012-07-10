@@ -13,6 +13,9 @@ package  nid.ui.controls
 	import nid.ui.controls.vkb.KeyBoardEvent;
 	import nid.ui.controls.vkb.KeyBoardUI;
 	
+	import scoutbar.ScoutBar;
+	
+	
 	/**
 	 * ...
 	 * @author Nidin P Vinayakan
@@ -54,11 +57,14 @@ package  nid.ui.controls
 		
 		private function updateTarget(e:KeyBoardEvent):void 
 		{
-			trace(e.char);
+			//trace(e.char);
+			this.referenceText = ScoutBar.us.search.text.text;
+
 			switch(e.char)
 			{
 				case '{del}':
 				{
+					
 					referenceText = referenceText.substr(0, referenceText.length - 1);
 				}
 				break;
@@ -105,15 +111,16 @@ package  nid.ui.controls
 			{
 				targetField.text = referenceText;
 			}
-		}
-		
+			dispatchEvent(new KeyBoardEvent(KeyBoardEvent.UPDATE));
 
+		}
 		
 		public function set target(obj:Object):void
 		{
 			if (isActive) return;
 			
 			targetField = obj.field;
+			
 			referenceText = targetField.text;
 			//keyboard.inputArea.fieldName.text = obj.fieldName;
 			//keyboard.inputArea.targetField.text = referenceText;
@@ -125,11 +132,11 @@ package  nid.ui.controls
 		
 		public function resize(e:Event=null):void
 		{
-			if (_stage!=null)
-			{
-				keyboard.build();
-				keyboard.y = _stage.stageHeight  - keyboard.height;
-			}
+			//if (_stage!=null)
+			//{
+			//	keyboard.build();
+			//	keyboard.y = _stage.stageHeight  - keyboard.height;
+			//}
 		}
 		
 		public function init(target:DisplayObject):void
@@ -138,6 +145,7 @@ package  nid.ui.controls
 			keyboard._stage  = _stage;
 			_stage.addEventListener(Event.RESIZE, resize);
 		}
+		
 		public function show():void
 		{
 			keyboard.y = _stage.stageHeight;

@@ -97,7 +97,7 @@ package scoutbar.view.productselection
 			//trace("filter geeft "+ temparr);
 			var xcount:int = maskingShape.width / temparr2[0].width;
 			var countx:int = 0;
-			var county:int = 0;
+			var county:Number = 0;
 			var xoffset:int = (maskingShape.width - (xcount * temparr2[0].width))/2;
 			var precat:int = 1;
 			if (xoffset <= temparr2[0].width * 0.2){
@@ -113,7 +113,7 @@ package scoutbar.view.productselection
 				if(precat != temparr2[i].data.categorie && skip == false){
 					//trace("skip categorie");
 					countx = 0;
-					county++;
+					county += 1.2;
 				}
 				
 				temparr2[i].x = (temparr2[i].width * countx)+xoffset;
