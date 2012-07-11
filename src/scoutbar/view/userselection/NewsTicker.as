@@ -13,11 +13,13 @@ package scoutbar.view.userselection
 		private var text1:TextField = new TextField();
 		private var text2:TextField = new TextField();
 		private var temptext:String = "";
-		private var _width:int;
+		private var offset:int;
+		private var size:int;
 		
-		public function NewsTicker(newsItems:Array,w:int = 500)
+		public function NewsTicker(newsItems:Array, offset:int = 200, size:int = 30)
 		{
-			_width = w;
+			this.size = size;
+			this.offset = offset;
 			newsArr = newsItems;
 			for(var index:String in newsArr){
 				temptext += (" || " + newsArr[index]);
@@ -30,15 +32,15 @@ package scoutbar.view.userselection
 				var maskshape:Shape = new Shape();
 				maskshape.graphics.lineStyle();
 				maskshape.graphics.beginFill(0xffffff,0);
-				maskshape.graphics.drawRect(0,0,stage.stageWidth - 200,40);
+				maskshape.graphics.drawRect(0,0,stage.stageWidth - offset,size+10);
 				maskshape.graphics.endFill();
 				this.addChild(maskshape);
 				this.mask = maskshape;
 				
-				this.x = 100
+				this.x = offset/2
 				
 				var textformat:TextFormat = new TextFormat();
-				textformat.size = 30;
+				textformat.size = this.size;
 				textformat.align = TextFormatAlign.LEFT;
 				
 				this.text1.defaultTextFormat = textformat;
@@ -61,9 +63,9 @@ package scoutbar.view.userselection
 		}
 		public function enterframeHandler(e:Event):void
 		{
-			text1.x -= 6;
-			text2.x -= 6;
-			trace(text1.x);
+			text1.x -= 3;
+			text2.x -= 3;
+			//trace(text1.x);
 			if(text1.x < (0-text1.width)){
 				text1.x += text1.width*2;
 			}

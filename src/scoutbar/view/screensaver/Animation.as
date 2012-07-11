@@ -6,12 +6,14 @@ package scoutbar.view.screensaver
 	import flash.events.Event;
 	import flash.events.TimerEvent;
 	import flash.utils.Timer;
+	
 	import scoutbar.resource.Image;
+	import scoutbar.view.userselection.NewsTicker;
 	
 
 	public class Animation extends Sprite
 	{
-		
+		private var newsTicker:NewsTicker;
 		private var timer:Timer = new Timer(5000, 0);
 		private var _x:int;
 		private var _y:int;
@@ -23,7 +25,7 @@ package scoutbar.view.screensaver
 		{
 			_x = h;
 			_y = w;
-			
+			newsTicker = new NewsTicker(["1 Meter bier 10 euro 11 bier!", "Wij schenken geen alcohol onder de 16!"], 0, 60);
 			background.graphics.lineStyle();
 			background.graphics.beginFill(0x000000);
 			background.graphics.drawRect(0,0,w,h);
@@ -31,7 +33,10 @@ package scoutbar.view.screensaver
 			this.addChild(background);
 			logo.scaleX = 0.2;
 			logo.scaleY = 0.2;
+			logo.x = 0;
+			logo.y = 0;
 			this.addChild(logo);
+			this.addChild(newsTicker);
 			
 			timer.addEventListener(TimerEvent.TIMER, movelogo);
 			timer.start();
