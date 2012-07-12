@@ -99,7 +99,7 @@ package scoutbar
 			ps =  new ProductSelection();
 			ps.x = stage.stageWidth*2;
 			stage.addChild(ps);
-			this.addChildAt(new FPSMonitor(), this.numChildren);
+			//this.addChildAt(new FPSMonitor(), this.numChildren);
 		}
 		
 		protected function switchToUserSelection(e:Event):void{

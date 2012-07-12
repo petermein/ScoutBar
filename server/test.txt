@@ -1,1 +1,1 @@
-{"BarUser":-1,"User":61,"Account":70,"Rows":[null,{"product":1,"naam":"Bier","aantal":1,"price":1}]}
+{"BarUser":-1,"User":47,"Account":56,"Rows":[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,{"product":21,"aantal":1,"price":0.7,"naam":"Stroopwafel"}]}

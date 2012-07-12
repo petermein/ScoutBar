@@ -24,7 +24,7 @@ package scoutbar.view.splash
 		private var label1:SplashLabel = new SplashLabel("ScoutBar");
 		private var label2:SplashLabel = new SplashLabel("Bestellen & Afrekenen");
 		private var input1:TextField = new TextField();
-		private var preloader:PreLoader = new PreLoader();
+		//private var preloader:PreLoader = new PreLoader();
 		
 		public function Splash()
 		{
@@ -71,9 +71,9 @@ package scoutbar.view.splash
 				
 			//resize bg
 				
-			preloader.x = this.stage.stageWidth/2;
-			preloader.y = this.stage.stageHeight/2 - 200;
-			this.addChild(preloader);
+			//preloader.x = this.stage.stageWidth/2;
+			//preloader.y = this.stage.stageHeight/2 - 200;
+			//this.addChild(preloader);
 		
 
 		}

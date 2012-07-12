@@ -29,7 +29,10 @@ package scoutbar.view.productselection
 		
 		public static function sendOrder():void{
 			var sender:JsonSendEvent = new JsonSendEvent();
+			if(order.Rows.length > 0){
+				trace("Send");
 			sender.Send(order);
+			}
 			var loader:JsonLoadEvent = new JsonLoadEvent();
 			loader.LoadUsers(user.persoon_id);
 			order = null;

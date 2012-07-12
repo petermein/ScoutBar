@@ -30,6 +30,7 @@ package scoutbar.view.productselection
 		private var saldo:TextField = new TextField();
 		private var pad:codePad = new codePad();
 		private var streeptext:TextField = new TextField();
+		private var canceltext:TextField = new TextField();
 		private var myFont:String = Fonts._mistral;
 		
 		private var Width:int;
