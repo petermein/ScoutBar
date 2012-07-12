@@ -25,5 +25,9 @@ package scoutbar.resource
 		[Embed (source="./assets/logo trui.jpg" )]
 		private static const _logo:Class;
 		public static const Logo:Bitmap = new _logo() as Bitmap;
+		
+		[Embed (source="./assets/qrcode.png" )]
+		private static const _qr:Class;
+		public static const Qr:Bitmap = new _qr() as Bitmap;
 	}
 }

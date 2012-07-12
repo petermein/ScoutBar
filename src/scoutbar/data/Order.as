@@ -2,7 +2,6 @@ package scoutbar.data
 {
 	import flash.events.EventDispatcher;
 	
-	import scoutbar.data.User;
 	import scoutbar.events.OrderEvents;
 	
 	

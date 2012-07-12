@@ -1,10 +1,6 @@
 package scoutbar
 {
 	//de json lib die ik nog ni
-	import com.adobe.serialization.json.JSON;
-	import com.greensock.TweenLite;
-	
-	import debug.Functions;
 	import debug.it.flashfuck.debugger.FPSMonitor;
 	
 	import flash.display.Sprite;
@@ -15,16 +11,11 @@ package scoutbar
 	import flash.events.Event;
 	import flash.events.MouseEvent;
 	
-	import nid.ui.controls.VirtualKeyBoard;
-	
 	import scoutbar.data.Global;
-	import scoutbar.data.User;
 	import scoutbar.events.JSONLoaded;
 	import scoutbar.events.ProductEvent;
 	import scoutbar.loader.JsonLoadEvent;
-	import scoutbar.loader.JsonSendEvent;
 	import scoutbar.resource.Image;
-	import scoutbar.view.card.Card;
 	import scoutbar.view.productselection.ProductSelection;
 	import scoutbar.view.screensaver.Screensaver;
 	import scoutbar.view.splash.Splash;

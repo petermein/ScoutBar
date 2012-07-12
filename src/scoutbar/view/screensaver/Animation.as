@@ -19,6 +19,7 @@ package scoutbar.view.screensaver
 		private var _x:int;
 		private var _y:int;
 		private var logo:Bitmap = Image.Logo; 
+		private var qr:Bitmap = Image.Qr; 
 		
 		private var background:Shape = new Shape();
 		
@@ -32,11 +33,15 @@ package scoutbar.view.screensaver
 			background.graphics.drawRect(0,0,w,h);
 			background.graphics.endFill();
 			this.addChild(background);
+			qr.x = 0;
+			qr.y = h - qr.height;
+			
 			logo.scaleX = 0.2;
 			logo.scaleY = 0.2;
 			logo.x = 0;
 			logo.y = 0;
 			this.addChild(logo);
+			this.addChild(qr);
 			this.addChild(newsTicker);
 			
 			timer.addEventListener(TimerEvent.TIMER, movelogo);
