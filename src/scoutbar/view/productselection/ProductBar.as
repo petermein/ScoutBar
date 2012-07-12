@@ -84,6 +84,8 @@ package scoutbar.view.productselection
 			this.streeptext.wordWrap = true;
 			knop.addChild(streeptext);
 			
+			
+			
 			var cancels:Shape = new Shape();
 			cancels.graphics.lineStyle();
 			cancels.graphics.beginFill(0xffffff,1);

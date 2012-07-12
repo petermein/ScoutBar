@@ -30,6 +30,7 @@ package scoutbar.loader
 		}
 		
 		public function Load():void {
+			LoadNews();
 			LoadUsers();
 			LoadProducts();
 		}
@@ -135,6 +136,31 @@ package scoutbar.loader
 						dispatchEvent(new JSONLoaded(JSONLoaded.JSON_HISTORY_LOADED));
 					}			
 				});
+			}
+		}
+		
+		
+		public function LoadNews():void {
+			this.Loaders['news'] = new URLLoader();
+			var path:String = Global.NEWS_URL;
+			var Request:URLRequest = new URLRequest(path);
+			this.Loaders['news'].addEventListener(Event.COMPLETE, saveNews);
+			try {
+				this.Loaders['news'].load(Request);
+			} catch (e:Error) {
+				trace(e);
+			}
+		}
+		
+		private function saveNews(e : Event):void {
+			var myData:Object = com.adobe.serialization.json.JSON.decode(this.Loaders['news'].data);
+			var count:int = 0;
+			var total:int = 0;
+			for(var i:String in myData.data){
+				total++;
+			}
+			for(var index:String in myData.data){
+				Global.NEWS.push(myData.data[index].bericht);
 			}
 		}
 		

@@ -7,6 +7,7 @@ package scoutbar.view.screensaver
 	import flash.events.TimerEvent;
 	import flash.utils.Timer;
 	
+	import scoutbar.data.Global;
 	import scoutbar.resource.Image;
 	import scoutbar.view.userselection.NewsTicker;
 	
@@ -25,7 +26,7 @@ package scoutbar.view.screensaver
 		{
 			_x = h;
 			_y = w;
-			newsTicker = new NewsTicker(["1 Meter bier 10 euro 11 bier!", "Wij schenken geen alcohol onder de 16!"], 0, 60);
+			newsTicker = new NewsTicker(Global.NEWS, 0, 60);
 			background.graphics.lineStyle();
 			background.graphics.beginFill(0x000000);
 			background.graphics.drawRect(0,0,w,h);

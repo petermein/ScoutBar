@@ -107,6 +107,7 @@ while ($row = mysql_fetch_array($result)) {
 				<li><a href="#">Personen overzicht</a></li>
 				<li><a href="#">Personen history</a></li>
 				<li><a href="#">Geschatte kassa inhoud</a></li>
+                                <li><a href="#">News Ticker</a></li>
 			</ul>
 			<div class="main_column">
 				<!-- Content area that wil show the form and stuff -->
@@ -155,6 +156,27 @@ while ($row = mysql_fetch_array($result)) {
 					</div>
                                         <div>
 						<div id="chart5_div"></div>
+					</div>
+                                        
+                                            <div>
+                                                <? 
+echo "<table border=1 >"; 
+echo "<tr>"; 
+echo "<td><b>Id</b></td>"; 
+echo "<td><b>Bericht</b></td>"; 
+echo "</tr>"; 
+$result = mysql_query("SELECT * FROM `news_ticker`") or trigger_error(mysql_error()); 
+while($row = mysql_fetch_array($result)){ 
+foreach($row AS $key => $value) { $row[$key] = stripslashes($value); } 
+echo "<tr>";  
+echo "<td valign='top'>" . nl2br( $row['id']) . "</td>";  
+echo "<td valign='top'>" . nl2br( $row['bericht']) . "</td>";  
+echo "<td valign='top'><a href=edit.php?id={$row['id']}>Edit</a></td><td><a href=delete.php?id={$row['id']}>Delete</a></td> "; 
+echo "</tr>"; 
+} 
+echo "</table>"; 
+echo "<a href=new.php>New Row</a>"; 
+?>
 					</div>
 				</div>
 			</div>

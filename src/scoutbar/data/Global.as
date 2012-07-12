@@ -10,16 +10,18 @@ package scoutbar.data
 		
 		public static var USERS:Array = new Array();
 		public static var PRODUCTS:Array = new Array();
+		public static var NEWS:Array = new Array();
 		
 		//public static var PRODUCT_URL:String = "http://10.0.0.6/Ext/scoutbar/data/php/product.php";
 		//public static var HISTORY_URL:String = "http://10.0.0.6/Ext/scoutbar/data/php/history.php";
 		//public static var USER_URL:String = "http://10.0.0.6/Ext/scoutbar/data/php/user.php";
 		//public static var SEND_ORDER_URL:String = "http://10.0.0.6/Ext/scoutbar/data/connector/updateUsers.php";
 
-		public static var PRODUCT_URL:String = "http://192.168.178.20/Ext/scoutbar/data/php/product.php";
-		public static var HISTORY_URL:String = "http://192.168.178.20/Ext/scoutbar/data/php/history.php";
-		public static var USER_URL:String = "http://192.168.178.20/Ext/scoutbar/data/php/user.php";
-		public static var SEND_ORDER_URL:String = "http://192.168.178.20/Ext/scoutbar/data/connector/updateUsers.php";
+		public static var PRODUCT_URL:String = "http://192.168.178.20/scoutbar/server/product.php";
+		public static var HISTORY_URL:String = "http://192.168.178.20/scoutbar/server/history.php";
+		public static var USER_URL:String = "http://192.168.178.20/scoutbar/server/user.php";
+		public static var SEND_ORDER_URL:String = "http://192.168.178.20/scoutbar/server/updateUsers.php";
+		public static var NEWS_URL:String = "http://192.168.178.20/scoutbar/server/news.php";
 
 		
 		public static var BASE_IMG_PATH:String = "../assets/";

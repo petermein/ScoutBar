@@ -25,7 +25,7 @@ package scoutbar.view.userselection
 		public var keyboard:VirtualKeyBoard = VirtualKeyBoard.getInstance();
 		public var clockTimer:Timer = new Timer(1000, 0);
 		public var timeTextfield:TextField = new TextField();
-		public var newsbar:NewsTicker = new NewsTicker(["tes   asdfasdfasdfasdf   t123","Ermasdfasdfasdfagnie    tgdr      oasdfasdfsadfasdfnkenwordena;lk     jsadfasdfsadfasdfasdfsadfasdfasdfasdfsdf   l;kj","nogmesadfasdfasdfsadf       rtro   ep","stop  d  d  d  ||"]);
+		public var newsbar:NewsTicker = new NewsTicker(Global.NEWS);
 		
 		public function UserSelection()
 		{
