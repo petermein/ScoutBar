@@ -15,7 +15,7 @@ package scoutbar.view.productselection
 		{
 			this.background.graphics.lineStyle();
 			this.background.graphics.beginFill(0xffffff,1);
-			this.background.graphics.drawRoundRect(0,0,40,20,20,20);
+			this.background.graphics.drawRoundRect(0,0,60,30,20,20);
 			this.background.graphics.endFill();
 			this.addChild(this.background);
 			
