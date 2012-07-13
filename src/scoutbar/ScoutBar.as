@@ -3,6 +3,7 @@ package scoutbar
 	//de json lib die ik nog ni
 	import debug.it.flashfuck.debugger.FPSMonitor;
 	
+	import com.adobe.serialization.json.JSON;
 	import flash.display.Sprite;
 	import flash.display.Stage;
 	import flash.display.StageAlign;
@@ -10,7 +11,9 @@ package scoutbar
 	import flash.display.StageScaleMode;
 	import flash.events.Event;
 	import flash.events.MouseEvent;
-	
+	import debug.Functions;
+	import nid.ui.controls.VirtualKeyBoard;
+	import scoutbar.data.User;
 	import scoutbar.data.Global;
 	import scoutbar.events.JSONLoaded;
 	import scoutbar.events.ProductEvent;
@@ -19,6 +22,8 @@ package scoutbar
 	import scoutbar.view.productselection.ProductSelection;
 	import scoutbar.view.screensaver.Screensaver;
 	import scoutbar.view.splash.Splash;
+	import scoutbar.loader.JsonSendEvent;
+	import scoutbar.view.card.Card;
 	import scoutbar.view.userselection.UserSelection;
 	
 	[SWF(width='600', height='800')]

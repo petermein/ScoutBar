@@ -3,7 +3,7 @@ package scoutbar.data
 	import flash.events.EventDispatcher;
 	
 	import scoutbar.events.OrderEvents;
-	
+	import scoutbar.data.User;
 	
 	public class Order extends EventDispatcher
 	{
