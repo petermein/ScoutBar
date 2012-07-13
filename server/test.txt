@@ -1,1 +1,1 @@
-{"BarUser":-1,"User":47,"Account":56,"Rows":[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,{"product":21,"aantal":1,"price":0.7,"naam":"Stroopwafel"}]}
+{"User":56,"Account":65,"BarUser":1,"Rows":[null,null,null,null,null,null,null,null,null,null,{"aantal":3,"price":-60,"naam":"20 euro","product":10},null,null,null,null,null,null,null,null,{"aantal":3,"price":1.7999999999999998,"naam":"Twix","product":19},null,{"aantal":1,"price":0.7,"naam":"Stroopwafel","product":21}]}

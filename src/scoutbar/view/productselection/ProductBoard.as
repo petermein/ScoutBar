@@ -113,7 +113,7 @@ package scoutbar.view.productselection
 				if(precat != temparr2[i].data.categorie && skip == false){
 					//trace("skip categorie");
 					countx = 0;
-					county += 1.2;
+					county += 1.05;
 				}
 				
 				temparr2[i].x = (temparr2[i].width * countx)+xoffset;

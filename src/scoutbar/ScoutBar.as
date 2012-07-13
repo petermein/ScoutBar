@@ -40,7 +40,6 @@ package scoutbar
 
 		
 		//URL request loader voor het php script met de JSON data
-
 		
 		public function ScoutBar()
 		{
