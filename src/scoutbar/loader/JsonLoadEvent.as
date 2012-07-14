@@ -62,12 +62,11 @@ package scoutbar.loader
 			for(var index:String in myData.data){
 				var myUser:User = new User(myData.data[index]);
 				Global.USERS[myUser.persoon_id]=(myUser);
-				//trace(myUser.saldo);
+				trace("Saldo:"+myUser.saldo);
 				myUser.addEventListener(UserEvent.USER_READY, function():void {
 					count++;
 					if(count == total){
 						UserLoaded = true;
-						trace(JSONLoaded.JSON_USERS_LOADED);
 						dispatchEvent(new JSONLoaded(JSONLoaded.JSON_USERS_LOADED));
 						if(total != 1){
 						Test();

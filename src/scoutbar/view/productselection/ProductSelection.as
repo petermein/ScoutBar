@@ -5,10 +5,12 @@ package scoutbar.view.productselection
 	import debug.Functions;
 	
 	import flash.display.Sprite;
+	import flash.events.Event;
 	
 	import scoutbar.data.Global;
 	import scoutbar.data.Order;
 	import scoutbar.data.User;
+	import scoutbar.events.JSONLoaded;
 	import scoutbar.events.ProductEvent;
 	import scoutbar.loader.JsonLoadEvent;
 	import scoutbar.loader.JsonSendEvent;
@@ -29,12 +31,20 @@ package scoutbar.view.productselection
 		
 		public static function sendOrder():void{
 			var sender:JsonSendEvent = new JsonSendEvent();
+			sender.addEventListener(JSONLoad, sendcomplete);
 			if(order.Rows.length > 0){
-				trace("Send");
 			sender.Send(order);
 			}
+
+		}
+		
+		public static function sendcomplete(e:Event):void{
 			var loader:JsonLoadEvent = new JsonLoadEvent();
+			loader.addEventListener(JSONLoaded.JSON_USERS_LOADED, switchusers);
 			loader.LoadUsers(user.persoon_id);
+		}
+		
+		public static function switchusers(e:Event):void{
 			order = null;
 			user = null;
 			board.clearAll();

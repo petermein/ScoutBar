@@ -7,6 +7,7 @@
 -- Server version: 5.5.9
 -- PHP Version: 5.2.17
 
+USE `mydb`;
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 

@@ -10,6 +10,11 @@ package scoutbar.events
 		
 		public static const JSON_HISTORY_LOADED:String = "usersJsonLoaded";
 		
+		public static const JSON_SEND_COMPLETE:String = "sendJsonComplete";
+
+		
+		
+		
 		public function JSONLoaded(type:String, bubbles:Boolean=false, cancelable:Boolean=false):void
 		{
 			super(type, bubbles, cancelable);

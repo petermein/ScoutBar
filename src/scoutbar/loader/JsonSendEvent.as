@@ -56,8 +56,7 @@ package scoutbar.loader
 		
 		private function loaderCompleteHandler(e:Event):void {
 			var responseVars:URLVariables = URLVariables( e.target.data );
-			trace( "responseVars: " + responseVars );
-			
+			trace( "responseVars: " + responseVars );			
 		}
 		private function httpStatusHandler( e:HTTPStatusEvent ):void {
 			//trace("httpStatusHandler:" + e);
