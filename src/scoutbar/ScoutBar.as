@@ -1,9 +1,11 @@
 package scoutbar
 {
 	//de json lib die ik nog ni
+	import com.adobe.serialization.json.JSON;
+	
+	import debug.Functions;
 	import debug.it.flashfuck.debugger.FPSMonitor;
 	
-	import com.adobe.serialization.json.JSON;
 	import flash.display.Sprite;
 	import flash.display.Stage;
 	import flash.display.StageAlign;
@@ -11,19 +13,22 @@ package scoutbar
 	import flash.display.StageScaleMode;
 	import flash.events.Event;
 	import flash.events.MouseEvent;
-	import debug.Functions;
+	import flash.events.TimerEvent;
+	import flash.utils.Timer;
+	
 	import nid.ui.controls.VirtualKeyBoard;
-	import scoutbar.data.User;
+	
 	import scoutbar.data.Global;
+	import scoutbar.data.User;
 	import scoutbar.events.JSONLoaded;
 	import scoutbar.events.ProductEvent;
 	import scoutbar.loader.JsonLoadEvent;
+	import scoutbar.loader.JsonSendEvent;
 	import scoutbar.resource.Image;
+	import scoutbar.view.card.Card;
 	import scoutbar.view.productselection.ProductSelection;
 	import scoutbar.view.screensaver.Screensaver;
 	import scoutbar.view.splash.Splash;
-	import scoutbar.loader.JsonSendEvent;
-	import scoutbar.view.card.Card;
 	import scoutbar.view.userselection.UserSelection;
 	
 	[SWF(width='600', height='800')]
@@ -35,6 +40,8 @@ package scoutbar
 		public static var us:UserSelection;
 		public static var ps:ProductSelection;
 		public static var screensaver:Screensaver;
+		
+		public static var timer:Timer;
 		
 		public var load:JsonLoadEvent;
 
@@ -49,15 +56,19 @@ package scoutbar
 			load = new JsonLoadEvent();
 			load.addEventListener(JSONLoaded.JSON_LOADED, tracetest);
 			load.Load();
-
+			
 		}
 		
 		protected function tracetest(e:Event):void{
 			trace("JSON completely loaded");
+			load.removeEventListener(JSONLoaded.JSON_LOADED, tracetest);
 			createUserSelection();
 			createProductSelection();
 			screensaver = new Screensaver(stage);
+
 		}
+		
+
 		
 		protected function init():void
 		{
@@ -103,7 +114,7 @@ package scoutbar
 			ps =  new ProductSelection();
 			ps.x = stage.stageWidth*2;
 			stage.addChild(ps);
-			//this.addChildAt(new FPSMonitor(), this.numChildren);
+			this.addChildAt(new FPSMonitor(), this.numChildren);
 		}
 		
 		protected function switchToUserSelection(e:Event):void{
@@ -133,13 +144,14 @@ package scoutbar
 				ps.setUser(Global.USERS[data.persoon_id]);
 			});
 			
+			ps.setUser(Global.USERS[data.persoon_id]);
 			ps.addEventListener(ProductEvent.USER_LOADED, function():void{
 				us.x = stage.stageWidth;
 				ps.x = 0;
 				//TweenLite.to(us, 1, {x:0-stage.stageWidth});
 				//TweenLite.to(ps, 1, {x:0});
 			});
-			load.LoadUsers(data.persoon_id);
+			//load.LoadUsers(data.persoon_id);
 		}
 		
 	}

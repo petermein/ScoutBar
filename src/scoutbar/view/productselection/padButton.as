@@ -5,14 +5,19 @@ package scoutbar.view.productselection
 	import flash.text.TextField;
 	import flash.text.TextFormat;
 	import flash.text.TextFormatAlign;
+	import flash.filters.GlowFilter;
 
 	public class padButton extends Sprite
 	{
 		private var background:Shape = new Shape();
 		public var text:TextField = new TextField();
 		
-		public function padButton(t:String)
+		public function padButton(t:String,c:uint=0x0000ff)
 		{
+			var myGlow:GlowFilter = new GlowFilter();
+			myGlow.color = c;
+			myGlow.strength = 255;
+			this.background.filters = [myGlow];
 			this.background.graphics.lineStyle();
 			this.background.graphics.beginFill(0xffffff,1);
 			this.background.graphics.drawRoundRect(0,0,60,30,20,20);

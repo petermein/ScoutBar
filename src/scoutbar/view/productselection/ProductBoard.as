@@ -48,7 +48,7 @@ package scoutbar.view.productselection
 			maskingShape.graphics.drawRoundRect(0,0,stage.stageWidth - (left+right),stage.stageHeight - (top+bottom),50,50);
 			maskingShape.graphics.endFill();
 			addChild(maskingShape);
-			addChild(scrollfield);
+			addChild(scrollfield);			
 			this.mask = maskingShape;
 		}
 		public function createCards():void

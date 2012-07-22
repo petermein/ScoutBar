@@ -6,6 +6,7 @@ package scoutbar.view.screensaver
 	import flash.events.MouseEvent;
 	import flash.events.TimerEvent;
 	import flash.utils.Timer;
+	import scoutbar.data.Global;
 	
 	public class Screensaver
 	{
@@ -19,7 +20,7 @@ package scoutbar.view.screensaver
 			animation = new Animation(_stage.stageWidth, _stage.stageHeight);
 			startTimer();
 			_stage.addEventListener(MouseEvent.MOUSE_MOVE, resetTimer);
-			_stage.addEventListener(MouseEvent.CLICK, resetTimer);
+			//_stage.addEventListener(MouseEvent.CLICK, resetTimer);
 
 
 		}
@@ -29,9 +30,9 @@ package scoutbar.view.screensaver
 			minuteTimer.removeEventListener(TimerEvent.TIMER, screensaver);
 
 			_stage.removeEventListener(MouseEvent.MOUSE_MOVE, resetTimer);
-			_stage.removeEventListener(MouseEvent.CLICK, resetTimer);
+			//_stage.removeEventListener(MouseEvent.CLICK, resetTimer);
 			animation.addEventListener(MouseEvent.MOUSE_MOVE, stopscreensaver);
-			animation.addEventListener(MouseEvent.CLICK, stopscreensaver);
+			//animation.addEventListener(MouseEvent.CLICK, stopscreensaver);
 			
 			_stage.addChild(animation);
 		}
@@ -41,8 +42,7 @@ package scoutbar.view.screensaver
 			_stage.removeChild(animation);
 			startTimer();
 			_stage.addEventListener(MouseEvent.MOUSE_MOVE, resetTimer);
-			_stage.addEventListener(MouseEvent.CLICK, resetTimer);
-
+			//_stage.addEventListener(MouseEvent.CLICK, resetTimer);
 		}
 		
 		public function resetTimer(e:MouseEvent):void

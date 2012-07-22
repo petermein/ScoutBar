@@ -15,6 +15,7 @@ package scoutbar.loader
 	import flash.utils.*;
 	
 	import scoutbar.data.Global;
+	import scoutbar.events.JSONLoaded;
 	
 	public class JsonSendEvent extends EventDispatcher
 	{
@@ -56,7 +57,8 @@ package scoutbar.loader
 		
 		private function loaderCompleteHandler(e:Event):void {
 			var responseVars:URLVariables = URLVariables( e.target.data );
-			trace( "responseVars: " + responseVars );			
+			trace( "responseVars: " + responseVars );
+			dispatchEvent(new JSONLoaded(JSONLoaded.JSON_SEND_COMPLETE));
 		}
 		private function httpStatusHandler( e:HTTPStatusEvent ):void {
 			//trace("httpStatusHandler:" + e);

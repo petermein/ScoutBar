@@ -60,9 +60,9 @@ package scoutbar.loader
 				total++;
 			}
 			for(var index:String in myData.data){
+				if(myData.data[index].persoon_id == 1) trace("Saldo:"+myData.data[index].saldo);
 				var myUser:User = new User(myData.data[index]);
 				Global.USERS[myUser.persoon_id]=(myUser);
-				trace("Saldo:"+myUser.saldo);
 				myUser.addEventListener(UserEvent.USER_READY, function():void {
 					count++;
 					if(count == total){

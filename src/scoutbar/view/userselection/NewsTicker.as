@@ -63,6 +63,7 @@ package scoutbar.view.userselection
 		}
 		public function enterframeHandler(e:Event):void
 		{
+			
 			text1.x -= 3;
 			text2.x -= 3;
 			//trace(text1.x);

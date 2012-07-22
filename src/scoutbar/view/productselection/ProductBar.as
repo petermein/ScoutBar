@@ -10,6 +10,7 @@ package scoutbar.view.productselection
 	import flash.text.TextFormat;
 	import flash.text.TextFormatAlign;
 	
+	import scoutbar.data.Global;
 	import scoutbar.data.User;
 	import scoutbar.resource.Fonts;
 	import scoutbar.resource.Image;
@@ -85,16 +86,27 @@ package scoutbar.view.productselection
 			this.streeptext.wordWrap = true;
 			knop.addChild(streeptext);
 			
-			
-			
 			var cancels:Shape = new Shape();
+			cancels.filters = [myGlow];
 			cancels.graphics.lineStyle();
 			cancels.graphics.beginFill(0xffffff,1);
-			cancels.graphics.drawRoundRect(20,this.stage.stageHeight - 140,Width-40,50,30,30);
+			cancels.graphics.drawRoundRect(20,this.stage.stageHeight - 150,Width-40,50,30,30);
 			cancels.graphics.endFill();
 			cancelknop.addChild(cancels);
 			cancelknop.addEventListener(MouseEvent.CLICK, cancel);
 			this.addChild(cancelknop);
+			
+			this.canceltext.embedFonts = true;
+			this.canceltext.defaultTextFormat = textformat6;
+			this.canceltext.text = "Terug";
+			this.canceltext.x = 0;
+			this.canceltext.y = this.stage.stageHeight - 160;
+			this.canceltext.width = Width;
+			this.canceltext.height = 50;
+			this.canceltext.textColor = 0x000000;
+			this.canceltext.selectable = false;
+			this.canceltext.wordWrap = true;
+			cancelknop.addChild(canceltext);
 			
 			var textformat:TextFormat = new TextFormat();
 			textformat.size = 20;
@@ -120,7 +132,7 @@ package scoutbar.view.productselection
 			this.productfield.border = true;
 			this.productfield.borderColor = 0xffffff;
 			this.productfield.width = Width - 40;
-			this.productfield.height = this.stage.stageHeight - (370 + 340);
+			this.productfield.height = this.stage.stageHeight - (370 + 400);
 			this.productfield.textColor = 0xFFFFFF;
 			this.productfield.selectable = false;
 			this.productfield.wordWrap = true;
@@ -133,7 +145,7 @@ package scoutbar.view.productselection
 			this.pricefield.border = true;
 			this.pricefield.borderColor = 0xffffff;
 			this.pricefield.width = Width - 190;
-			this.pricefield.height = this.stage.stageHeight - (370 + 340);
+			this.pricefield.height = this.stage.stageHeight - (370 + 400);
 			this.pricefield.textColor = 0xFFFFFF;
 			this.pricefield.selectable = false;
 			this.pricefield.wordWrap = true;
@@ -171,8 +183,8 @@ package scoutbar.view.productselection
 			this.lastorder.wordWrap = true;
 			this.addChild(lastorder);
 			
-			this.pad.x = 60;
-			this.pad.y = this.stage.stageHeight - 310;
+			this.pad.x = 25;
+			this.pad.y = this.stage.stageHeight - 370;
 			this.addChild(pad);
 			
 			this.image.x = (this.Width - this.image.Width)/2;
@@ -182,18 +194,20 @@ package scoutbar.view.productselection
 		
 		public function setUser(user:User):void
 		{
+			trace("Set User "+ Global.USERS[user.persoon_id].saldo);
+			var usert:User = Global.USERS[user.persoon_id];
 			if(user.saldo < 0){
 				saldo.textColor = 0xff0000;
 			}else{
 				saldo.textColor = 0xffffff;
 			}
-			saldo.text = "€ "+user.saldo.toFixed(2);
+			saldo.text = "€ "+usert.saldo.toFixed(2);
 			ProductSelection.board.sortcards();
 			productfield.text = "";
 			pricefield.text = "";
-			lastorder.text = user.last_order;
-			namefield.text = user.voornaam + " " + user.achternaam;
-			image.setImage(user.image);
+			lastorder.text = usert.last_order;
+			namefield.text = usert.voornaam + " " + usert.achternaam;
+			image.setImage(usert.image);
 		}
 		
 		public function send(e:Event):void {

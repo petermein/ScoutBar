@@ -2,8 +2,8 @@ package scoutbar.data
 {
 	import flash.events.EventDispatcher;
 	
-	import scoutbar.events.OrderEvents;
 	import scoutbar.data.User;
+	import scoutbar.events.OrderEvents;
 	
 	public class Order extends EventDispatcher
 	{
@@ -27,6 +27,14 @@ package scoutbar.data
 			var Row:OrderRow = new OrderRow(amount, product);
 			this.Rows[product.product_id] = Row;
 			dispatchEvent(new OrderEvents(OrderEvents.ORDER_ROW_ADDED));
+		}
+		
+		public function Total(){
+			var Total = 0;
+			for(var index:String in Rows){
+				Total += Rows[index].price;
+			}
+			return Total;
 		}
 				
 		public function Clear():void{

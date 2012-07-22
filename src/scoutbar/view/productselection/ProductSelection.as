@@ -31,20 +31,13 @@ package scoutbar.view.productselection
 		
 		public static function sendOrder():void{
 			var sender:JsonSendEvent = new JsonSendEvent();
-			sender.addEventListener(JSONLoad, sendcomplete);
 			if(order.Rows.length > 0){
 			sender.Send(order);
 			}
-
-		}
-		
-		public static function sendcomplete(e:Event):void{
-			var loader:JsonLoadEvent = new JsonLoadEvent();
-			loader.addEventListener(JSONLoaded.JSON_USERS_LOADED, switchusers);
-			loader.LoadUsers(user.persoon_id);
-		}
-		
-		public static function switchusers(e:Event):void{
+			trace("Total "+order.Total());
+			trace("Before "+Global.USERS[order.User].saldo);
+			Global.USERS[order.User].saldo -= order.Total();
+			trace("After "+Global.USERS[order.User].saldo);
 			order = null;
 			user = null;
 			board.clearAll();
@@ -61,11 +54,11 @@ package scoutbar.view.productselection
 		}
 
 		public function setUser(usert:User):void{
-			order = new Order(usert);
-			border.setUser(usert);
-			user = usert;
-			board.sortcards(user.leeftijd);
-			trace(user.level);
+			order = new Order(Global.USERS[usert.persoon_id]);
+			border.setUser(Global.USERS[usert.persoon_id]);
+			user = Global.USERS[usert.persoon_id];
+			board.sortcards(Global.USERS[usert.persoon_id].leeftijd);
+			//trace(user.level);
 			if(usert.level == 1){
 				border.hideSaldo(false);
 			} else {

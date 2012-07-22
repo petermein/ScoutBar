@@ -6,6 +6,7 @@ package scoutbar.view.productselection
 	import flash.text.TextField;
 	import flash.text.TextFormat;
 	import flash.text.TextFormatAlign;
+	import flash.filters.GlowFilter;
 	
 	import scoutbar.data.Global;
 
@@ -21,8 +22,8 @@ package scoutbar.view.productselection
 		public var _8:padButton = new padButton("8");
 		public var _9:padButton = new padButton("9");
 		public var _0:padButton = new padButton("0");
-		public var ok:padButton = new padButton("ok");
-		public var _x:padButton = new padButton("x");
+		public var ok:padButton = new padButton("ok",0x00ff00);
+		public var _x:padButton = new padButton("x",0xff0000);
 		private var background:Shape = new Shape();
 		private var text:TextField = new TextField();
 		
@@ -33,26 +34,26 @@ package scoutbar.view.productselection
 			_1.y = 40;
 			_2.x = 70;
 			_2.y = 40;
-			_3.x = 120;
+			_3.x = 140;
 			_3.y = 40;
 			_4.x = 0;
 			_4.y = 80;
 			_5.x = 70;
 			_5.y = 80;
-			_6.x = 120;
+			_6.x = 140;
 			_6.y = 80;
 			_7.x = 0;
-			_7.y = 110;
+			_7.y = 120;
 			_8.x = 70;
-			_8.y = 110;
-			_9.x = 120;
-			_9.y = 110;
+			_8.y = 120;
+			_9.x = 140;
+			_9.y = 120;
 			_0.x = 70;
-			_0.y = 140;
+			_0.y = 160;
 			ok.x = 0;
-			ok.y = 140;
-			_x.x = 120;
-			_x.y = 140;
+			ok.y = 160;
+			_x.x = 140;
+			_x.y = 160;
 			this.addChild(_1);
 			this.addChild(_2);
 			this.addChild(_3);
@@ -79,6 +80,10 @@ package scoutbar.view.productselection
 			ok.addEventListener(MouseEvent.CLICK,clickHandeler);
 			_x.addEventListener(MouseEvent.CLICK,clickHandeler);
 			
+			var myGlow:GlowFilter = new GlowFilter();
+			myGlow.color = 0x0000ff;
+			myGlow.strength = 255;
+			this.background.filters = [myGlow];
 			this.background.graphics.lineStyle();
 			this.background.graphics.beginFill(0xffffff,1);
 			this.background.graphics.drawRoundRect(0,0,this.width,30,20,20);
