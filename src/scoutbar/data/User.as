@@ -66,6 +66,7 @@ package scoutbar.data
 			this.last_order = data.last_order;
 			this.imgpath = data.imgpath;
 			this.groups = new Array();
+			this.groups.push(0);
 			this.leeftijd = UserFunctions.calculateAge(this.geboortedatum);
 				for(var index:String in data.groepen){
 					this.groups.push(data.groepen[index].groep_id);
@@ -80,7 +81,7 @@ package scoutbar.data
 			} else {
 				loaderIOErrorHandler(null);
 			}
-			
+
 		}
 	
 	private function onComplete(evt:Event):void
