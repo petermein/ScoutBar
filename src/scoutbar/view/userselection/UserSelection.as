@@ -18,8 +18,9 @@ package scoutbar.view.userselection
 
 	public class UserSelection extends Sprite
 	{
-		public var board:UserBoard = new UserBoard(40,100,10,10);
+		public var board:UserBoard = new UserBoard(40,100,10,260);
 		public var search:SearchBar = new SearchBar(20,50,100);
+		public static var bar:UserBar = new UserBar(250);
 		public var menu:Shape = new Shape();
 		public var text:TextField = new TextField();
 		public var keyboard:VirtualKeyBoard = VirtualKeyBoard.getInstance();
@@ -33,6 +34,7 @@ package scoutbar.view.userselection
 			this.addChild(board);
 			this.addChild(search);
 			this.addChild(keyboard);
+			this.addChild(bar);
 			VirtualKeyBoard.getInstance().init(Global.SCOUTBAR.stage);
 			VirtualKeyBoard.getInstance().target = { field:search.text, fieldName:"Test" };
 			VirtualKeyBoard.getInstance().addEventListener(KeyBoardEvent.UPDATE, updateusers);
@@ -41,7 +43,7 @@ package scoutbar.view.userselection
 		}
 		
 		private function drawKeyboard():void{
-			board = new UserBoard(40,100+280,10,10);
+			board = new UserBoard(40,100+280,10,260);
 			search = new SearchBar(20,50,100+280);
 			keyboard.y = Global.SCOUTBAR.stage.stageHeight - 300;
 		}

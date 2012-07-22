@@ -47,6 +47,7 @@ package scoutbar.view.userselection
 			maskingShape.graphics.lineStyle();
 			maskingShape.graphics.beginFill(0x000000,1);
 			maskingShape.graphics.drawRect(0,0,stage.stageWidth - (left+right),stage.stageHeight - (top+bottom));
+			trace(right);
 			maskingShape.graphics.endFill();
 			addChild(maskingShape);
 			addChild(scrollfield);
