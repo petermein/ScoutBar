@@ -5,6 +5,7 @@ package scoutbar.view.userselection
 	import flash.events.Event;
 	import flash.events.MouseEvent;
 	
+	import scoutbar.data.Global;
 	import scoutbar.view.productselection.ToggleButton;
 
 	public class UserBar extends Sprite
@@ -12,6 +13,7 @@ package scoutbar.view.userselection
 		
 		private var bg:Shape = new Shape();
 		private var Width:int;
+		private var classArr:Array = new Array();
 		
 		public function UserBar(w:int)
 		{
@@ -28,11 +30,28 @@ package scoutbar.view.userselection
 			this.bg.graphics.endFill();
 			this.addChild(bg);	
 			
-			var button1:ToggleButton = new ToggleButton("button1");
-			button1.x = 10;
-			button1.y = 100;
-			this.addChild(button1);
-			
+			var counter:int = 0;
+			for(var index:String in Global.GROUPS){
+				var button:ToggleButton = new ToggleButton(Global.GROUPS[index], index);
+				button.x = 10;
+				button.y = 60 + (counter * 40);
+				this.addChild(button);
+				button.addEventListener(MouseEvent.CLICK,ClickHandler);
+				counter++;
+			}
+		}
+		public function ClickHandler(e:MouseEvent):void
+		{
+			if(e.currentTarget.on){
+				e.currentTarget.bg2.visible = false;
+				e.currentTarget.on = false;
+				UserSelection.userFilterArr[e.currentTarget.index] = false;
+			}else{
+				e.currentTarget.bg2.visible = true;
+				e.currentTarget.on = true;
+				UserSelection.userFilterArr[e.currentTarget.index] = true;
+			}
+			UserSelection.board.sortcards();
 		}
 	}
 }

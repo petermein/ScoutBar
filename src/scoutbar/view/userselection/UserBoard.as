@@ -76,7 +76,9 @@ package scoutbar.view.userselection
 			}
 			var maxobj:int = xcount * ycount;
 			currentString = t;
-			var temparr:Array = cardarr.filter(searchName);
+			var temparr:Array =  cardarr.filter(userCat);
+			temparr = temparr.filter(searchName);
+			
 			for(var index:String in cardarr){
 				cardarr[index].visible = false;
 			}
@@ -113,6 +115,10 @@ package scoutbar.view.userselection
 		{
 			var nameRegExp:RegExp = new RegExp('^'+ this.currentString, 'i');
 			return nameRegExp.test(item.data.voornaam) || nameRegExp.test(item.data.achternaam) || nameRegExp.test(item.data.nickname);
+		}
+		private function userCat(item:*,index:int,array:Array):Boolean
+		{
+			return true;
 		}
 	}
 }

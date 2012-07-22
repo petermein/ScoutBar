@@ -18,7 +18,7 @@ package scoutbar.view.userselection
 
 	public class UserSelection extends Sprite
 	{
-		public var board:UserBoard = new UserBoard(40,100,10,260);
+		public static var board:UserBoard = new UserBoard(40,100,10,260);
 		public var search:SearchBar = new SearchBar(20,50,100);
 		public static var bar:UserBar = new UserBar(250);
 		public var menu:Shape = new Shape();
@@ -27,6 +27,7 @@ package scoutbar.view.userselection
 		public var clockTimer:Timer = new Timer(1000, 0);
 		public var timeTextfield:TextField = new TextField();
 		public var newsbar:NewsTicker = new NewsTicker(Global.NEWS);
+		public static var userFilterArr:Array = new Array;
 		
 		public function UserSelection()
 		{
@@ -40,6 +41,9 @@ package scoutbar.view.userselection
 			VirtualKeyBoard.getInstance().addEventListener(KeyBoardEvent.UPDATE, updateusers);
 			search.text.addEventListener(Event.CHANGE, updateusers);
 			addEventListener(Event.ADDED_TO_STAGE, addedHandler, false, 0, true);
+			for(var index:String in Global.GROUPS){
+				userFilterArr[index] = true;
+			}
 		}
 		
 		private function drawKeyboard():void{

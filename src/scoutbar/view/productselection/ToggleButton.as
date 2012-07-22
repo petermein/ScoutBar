@@ -10,13 +10,18 @@ package scoutbar.view.productselection
 	public class ToggleButton extends Sprite
 	{
 		private var bg:Shape = new Shape();
-		private var bg2:Shape = new Shape();
+		public var bg2:Shape = new Shape();
 		private var namefield:TextField = new TextField();
 		
 		public var on:Boolean = true;
+		public var index:String;
+		public var group:String;
 		
-		public function ToggleButton(s:String)
+		public function ToggleButton(s:String,i:String)
 		{
+			index = i;
+			group = s;
+			
 			bg.graphics.lineStyle();
 			bg.graphics.beginFill(0xffffff,1);
 			bg.graphics.drawRoundRect(0,0,30,30,10,10);
@@ -35,22 +40,11 @@ package scoutbar.view.productselection
 			this.namefield.defaultTextFormat = textformat;
 			this.namefield.text = s;
 			this.namefield.x = 40;
+			this.namefield.width = namefield.textWidth + 5;
 			this.namefield.textColor = 0xFFFFFF;
 			this.namefield.selectable = false;
 			this.namefield.wordWrap = true;
 			this.addChild(namefield);
-			
-			this.addEventListener(MouseEvent.CLICK,ClickHandler);
-		}
-		public function ClickHandler(e:MouseEvent):void
-		{
-			if(on){
-				bg2.visible = false;
-				on = false;
-			}else{
-				bg2.visible = true;
-				on = true;
-			}
 		}
 	}
 }
