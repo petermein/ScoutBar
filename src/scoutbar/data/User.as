@@ -1,5 +1,7 @@
 package scoutbar.data
 {
+	import debug.Functions;
+	
 	import flash.display.Bitmap;
 	import flash.display.Loader;
 	import flash.events.Event;
@@ -39,6 +41,8 @@ package scoutbar.data
 		
 		public var imgpath:String;
 		
+		public var groups:Array;
+		
 		public var last_order:String;
 		
 		public var image:Bitmap;
@@ -61,8 +65,12 @@ package scoutbar.data
 			this.rekening = data.rekening;
 			this.last_order = data.last_order;
 			this.imgpath = data.imgpath;
+			this.groups = new Array();
 			this.leeftijd = UserFunctions.calculateAge(this.geboortedatum);
-			
+				for(var index:String in data.groepen){
+					this.groups.push(data.groepen[index].groep_id);
+				}		
+				
 			if(this.imgpath != null || this.imgpath == ''){
 				var path:String = Global.BASE_IMG_PATH+''+this.imgpath;
 				var imageRequest:URLRequest = new URLRequest(path);
