@@ -1,9 +1,11 @@
 package scoutbar.view.userselection
 {
+	import flash.display.Shape;
+	import flash.display.Sprite;
 	import flash.events.Event;
 	import flash.events.MouseEvent;
-	import flash.display.Sprite;
-	import flash.display.Shape;
+	
+	import scoutbar.view.productselection.ToggleButton;
 
 	public class UserBar extends Sprite
 	{
@@ -25,6 +27,12 @@ package scoutbar.view.userselection
 			this.bg.graphics.drawRect(0,50,Width,this.stage.stageHeight - 420);
 			this.bg.graphics.endFill();
 			this.addChild(bg);	
+			
+			var button1:ToggleButton = new ToggleButton("button1");
+			button1.x = 10;
+			button1.y = 100;
+			this.addChild(button1);
+			
 		}
 	}
 }
