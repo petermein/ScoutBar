@@ -41,6 +41,7 @@ package scoutbar.view.userselection
 			VirtualKeyBoard.getInstance().addEventListener(KeyBoardEvent.UPDATE, updateusers);
 			search.text.addEventListener(Event.CHANGE, updateusers);
 			addEventListener(Event.ADDED_TO_STAGE, addedHandler, false, 0, true);
+			userFilterArr[0] = true;
 			for(var index:String in Global.GROUPS){
 				userFilterArr[index] = true;
 			}

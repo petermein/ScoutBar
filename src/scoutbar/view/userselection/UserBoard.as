@@ -118,7 +118,16 @@ package scoutbar.view.userselection
 		}
 		private function userCat(item:*,index:int,array:Array):Boolean
 		{
-			return true;
+			for(var index4:String in UserSelection.userFilterArr){
+				if(UserSelection.userFilterArr[index4]){
+					for(var index2:String in item.data.groups){
+					 	if(index4 == item.data.groups[index2]){
+							return true;
+						}
+					}
+				}
+			}
+			return false;
 		}
 	}
 }

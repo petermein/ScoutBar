@@ -29,8 +29,12 @@ package scoutbar.view.userselection
 			this.bg.graphics.drawRect(0,50,Width,this.stage.stageHeight - 420);
 			this.bg.graphics.endFill();
 			this.addChild(bg);	
-			
-			var counter:int = 0;
+			var button2:ToggleButton = new ToggleButton("Iedereen","0");
+			button2.x = 10;
+			button2.y = 60;
+			this.addChild(button2);
+			button2.addEventListener(MouseEvent.CLICK,ClickHandler);
+			var counter:int = 1;
 			for(var index:String in Global.GROUPS){
 				var button:ToggleButton = new ToggleButton(Global.GROUPS[index], index);
 				button.x = 10;
