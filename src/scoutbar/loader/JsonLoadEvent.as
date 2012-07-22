@@ -26,17 +26,18 @@ package scoutbar.loader
 		private var ProductsLoaded:Boolean = false;
 		
 		public function JsonLoadEvent(){
-
+			
 		}
 		
 		public function Load():void {
 			LoadNews();
+			LoadGroups();
 			LoadUsers();
 			LoadProducts();
 		}
 		
 		public function LoadUsers(id:int = -1):void {
-				var path:String = Global.USER_URL;
+			var path:String = Global.USER_URL;
 			if(id != -1){
 				path += "?id=" + id.toString();
 			}
@@ -69,12 +70,34 @@ package scoutbar.loader
 						UserLoaded = true;
 						dispatchEvent(new JSONLoaded(JSONLoaded.JSON_USERS_LOADED));
 						if(total != 1){
-						Test();
+							Test();
 						}
 					}
 				});
 			}
 		}
+		
+		public function LoadGroups():void {
+			var path:String = Global.GROUPS_URL;
+			var Request:URLRequest = new URLRequest(path);
+			this.Loaders['groups'] = (new URLLoader());
+			this.Loaders['groups'].addEventListener(Event.COMPLETE, saveGroups);
+			try {
+				this.Loaders['groups'].load(Request);
+			} catch (e:Error) {
+				trace(e);
+			}
+			
+		}
+		
+		private function saveGroups(e : Event):void {
+			trace('LoadGroups');
+			var myData:Object = com.adobe.serialization.json.JSON.decode(this.Loaders['groups'].data);
+			for(var index:String in myData.data){
+				Global.GROUPS[myData.data[index].groep_id]=myData.data[index].Groepsnaam;
+			}
+		}
+		
 		
 		public function LoadProducts():void {
 			this.Loaders['products'] = new URLLoader();
