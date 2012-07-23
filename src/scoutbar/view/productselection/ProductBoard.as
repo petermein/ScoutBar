@@ -11,6 +11,7 @@ package scoutbar.view.productselection
 	import scoutbar.data.Global;
 	import scoutbar.data.Product;
 	import scoutbar.view.card.Card;
+	import scoutbar.view.userselection.UserSelection;
 	
 	public class ProductBoard extends Sprite
 	{
@@ -18,6 +19,7 @@ package scoutbar.view.productselection
 		private var cardarr:Array = new Array();
 		private var scrollfield:Sprite = new Sprite();
 		private var maskingShape:Shape=new Shape();
+		private var main:Boolean;
 		
 		private var top:int = 0;
 		private var bottom:int = 0;
@@ -26,8 +28,9 @@ package scoutbar.view.productselection
 		
 		private var age:int;
 		
-		public function ProductBoard(t:int,b:int,l:int,r:int)
+		public function ProductBoard(t:int,b:int,l:int,r:int,f:Boolean = false)
 		{
+			main = f;
 			top = t;
 			bottom = b;
 			left = l;
@@ -78,7 +81,7 @@ package scoutbar.view.productselection
 				cardarr.push(card);
 			}
 			cardarr.sort(card.compareCategorie);
-			sortcards();
+			sortcards(18);
 		}
 		public function sortcards(a:int = 1):void
 		{
@@ -144,8 +147,15 @@ package scoutbar.view.productselection
 		
 		public function orderItem(e:Event):void{
 			var card:Card = e.currentTarget as Card;
-			ProductSelection.order.AddRow(card.incCount(), card.data as Product);
-			ProductSelection.border.updateProductField();
+			if(main){
+				UserSelection.bar.card.updateCard(card.data,90,90,0xff0000);
+				UserSelection.board.visible = true;
+				UserSelection.product.visible = false;
+			}else{
+				
+				ProductSelection.order.AddRow(card.incCount(), card.data as Product);
+				ProductSelection.border.updateProductField();
+			}
 		}
 		private function searchClass(item:*,index:int,array:Array):Boolean
 		{

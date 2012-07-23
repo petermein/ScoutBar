@@ -53,5 +53,13 @@ package scoutbar.view.card
 			image.width = Width;
 			image.height = Width * ratio;
 		}
+		public function updateCard(img:Bitmap,w:int,h:int,c:uint = 0xffffff):void
+		{
+			image.bitmapData = img.bitmapData;
+			var ratio:Number = image.height / image.width;
+			image.width = Width;
+			image.height = Width * ratio;
+			image.mask = maskingShape;
+		}
 	}
 }

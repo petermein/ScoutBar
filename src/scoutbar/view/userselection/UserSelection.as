@@ -15,10 +15,12 @@ package scoutbar.view.userselection
 	import nid.ui.controls.vkb.KeyBoardEvent;
 	
 	import scoutbar.data.Global;
+	import scoutbar.view.productselection.ProductBoard;
 
 	public class UserSelection extends Sprite
 	{
 		public static var board:UserBoard = new UserBoard(40,100,0,170);
+		public static var product:ProductBoard = new ProductBoard(40,100,0,170,true);
 		public static var search:SearchBar = new SearchBar(20,50,100);
 		public static var bar:UserBar = new UserBar(170);
 		public var menu:Shape = new Shape();
@@ -36,6 +38,8 @@ package scoutbar.view.userselection
 			this.addChild(search);
 			this.addChild(keyboard);
 			this.addChild(bar);
+			this.addChild(product);
+			product.visible = false;
 			VirtualKeyBoard.getInstance().init(Global.SCOUTBAR.stage);
 			VirtualKeyBoard.getInstance().target = { field:search.text, fieldName:"Test" };
 			VirtualKeyBoard.getInstance().addEventListener(KeyBoardEvent.UPDATE, updateusers);

@@ -108,7 +108,11 @@ package scoutbar.view.userselection
 		}
 		private function openOrder(e:MouseEvent):void{
 			var ref:Card = e.currentTarget as Card;
-			Global.SCOUTBAR.switchToProductSelection(Global.USERS[ref.data.persoon_id]);
+			if(Global.MASSASTREEP){
+				ref.incCount();
+			}else{
+				Global.SCOUTBAR.switchToProductSelection(Global.USERS[ref.data.persoon_id]);
+			}
 		}
 		
 		private function searchName(item:*,index:int,array:Array):Boolean

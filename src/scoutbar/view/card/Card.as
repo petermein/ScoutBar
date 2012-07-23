@@ -97,5 +97,26 @@ package scoutbar.view.card
 		{
 			
 		}
+		public function updateCard(dao:*,w:int,h:int,c:uint = 0xffffff):void
+		{
+			this.data = dao;
+			this.image.updateCard(dao.image,w,h,c);
+			
+			var textformat:TextFormat = new TextFormat();
+			textformat.size = 15;
+			textformat.align = TextFormatAlign.CENTER;
+			text.defaultTextFormat = textformat;
+			text.text = data.toString();
+			text.x = 0;
+			text.y = 15 + h;
+			text.width = 110;
+			text.height = 40;
+			text.textColor = 0xFFFFFF;
+			text.selectable = false;
+			text.wordWrap = true;
+			
+			push.x = 80;
+			push.y = -5;
+		}
 	}
 }

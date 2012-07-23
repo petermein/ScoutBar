@@ -35,6 +35,8 @@ package scoutbar.data
 		public static var SCOUTBAR = null;
 		
 		public static var CURRENT_HISTORY:Array = new Array();
+		
+		public static var MASSASTREEP:Boolean = false;
 
 		/**
 		 * 
