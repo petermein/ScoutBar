@@ -129,5 +129,9 @@ package scoutbar.view.userselection
 			}
 			return false;
 		}
+		public function toggleSort():void
+		{
+			this.sortcards(UserSelection.search.text.text);
+		}
 	}
 }

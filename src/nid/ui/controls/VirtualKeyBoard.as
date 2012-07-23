@@ -13,7 +13,7 @@ package  nid.ui.controls
 	import nid.ui.controls.vkb.KeyBoardEvent;
 	import nid.ui.controls.vkb.KeyBoardUI;
 	
-	import scoutbar.ScoutBar;
+	import scoutbar.view.userselection.UserSelection;
 	
 	
 	/**
@@ -58,7 +58,7 @@ package  nid.ui.controls
 		private function updateTarget(e:KeyBoardEvent):void 
 		{
 			//trace(e.char);
-			this.referenceText = ScoutBar.us.search.text.text;
+			this.referenceText = UserSelection.search.text.text;
 
 			switch(e.char)
 			{

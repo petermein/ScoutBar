@@ -52,7 +52,6 @@ package scoutbar
 		{
 			Global.SCOUTBAR = this;
 			this.init();
-			this.createSplash();
 			load = new JsonLoadEvent();
 			load.addEventListener(JSONLoaded.JSON_LOADED, tracetest);
 			load.Load();
@@ -62,6 +61,7 @@ package scoutbar
 		protected function tracetest(e:Event):void{
 			trace("JSON completely loaded");
 			load.removeEventListener(JSONLoaded.JSON_LOADED, tracetest);
+			 createSplash();
 			createUserSelection();
 			createProductSelection();
 			screensaver = new Screensaver(stage);
@@ -131,7 +131,7 @@ package scoutbar
 		public function switchToUserSelectionFromProduct(e:Event):void{
 			trace("Switch to userselection");
 				UserSelection.board.sortcards("");
-				us.search.text.text = "";
+				UserSelection.search.text.text = "";
 				us.x = 0;
 				ps.x = stage.stageWidth;
 				//TweenLite.to(us, 1, {x:0});
