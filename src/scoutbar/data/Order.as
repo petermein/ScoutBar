@@ -29,8 +29,8 @@ package scoutbar.data
 			dispatchEvent(new OrderEvents(OrderEvents.ORDER_ROW_ADDED));
 		}
 		
-		public function Total(){
-			var Total = 0;
+		public function Total():Number{
+			var Total:Number = 0;
 			for(var index:String in Rows){
 				Total += Rows[index].price;
 			}
