@@ -17,6 +17,9 @@ package scoutbar.loader
 	import scoutbar.events.JSONLoaded;
 	import scoutbar.events.ProductEvent;
 	import scoutbar.events.UserEvent;
+	import flash.events.IOErrorEvent;
+	
+	import scoutbar.view.Messagebox;
 	
 	public class JsonLoadEvent extends EventDispatcher
 	{
@@ -44,6 +47,8 @@ package scoutbar.loader
 			var Request:URLRequest = new URLRequest(path);
 			this.Loaders['users'] = (new URLLoader());
 			this.Loaders['users'].addEventListener(Event.COMPLETE, saveUsers);
+			this.Loaders['users'].addEventListener(IOErrorEvent.IO_ERROR, onIOError);
+			this.Loaders['users'].addEventListener(IOErrorEvent.NETWORK_ERROR, onIOError);
 			try {
 				this.Loaders['users'].load(Request);
 			} catch (e:Error) {
@@ -82,6 +87,8 @@ package scoutbar.loader
 			var Request:URLRequest = new URLRequest(path);
 			this.Loaders['groups'] = (new URLLoader());
 			this.Loaders['groups'].addEventListener(Event.COMPLETE, saveGroups);
+			this.Loaders['groups'].addEventListener(IOErrorEvent.IO_ERROR, onIOError);
+			this.Loaders['groups'].addEventListener(IOErrorEvent.NETWORK_ERROR, onIOError);
 			try {
 				this.Loaders['groups'].load(Request);
 			} catch (e:Error) {
@@ -103,6 +110,8 @@ package scoutbar.loader
 			this.Loaders['products'] = new URLLoader();
 			var Request:URLRequest = new URLRequest(Global.PRODUCT_URL);
 			this.Loaders['products'].addEventListener(Event.COMPLETE, saveProducts);
+			this.Loaders['products'].addEventListener(IOErrorEvent.IO_ERROR, onIOError);
+			this.Loaders['products'].addEventListener(IOErrorEvent.NETWORK_ERROR, onIOError);
 			try {
 				this.Loaders['products'].load(Request);
 			} catch (e:Error) {
@@ -167,6 +176,8 @@ package scoutbar.loader
 			var path:String = Global.NEWS_URL;
 			var Request:URLRequest = new URLRequest(path);
 			this.Loaders['news'].addEventListener(Event.COMPLETE, saveNews);
+			this.Loaders['news'].addEventListener(IOErrorEvent.IO_ERROR, onIOError);
+			this.Loaders['news'].addEventListener(IOErrorEvent.NETWORK_ERROR, onIOError);
 			try {
 				this.Loaders['news'].load(Request);
 			} catch (e:Error) {
@@ -192,6 +203,11 @@ package scoutbar.loader
 				var jlevent:Event = new JSONLoaded("allJsonLoaded");
 				dispatchEvent(jlevent);
 			}
+		}
+		
+		public function onIOError(e:IOErrorEvent):void
+		{
+			Global.SCOUTBAR.stage.addChild(new Messagebox("Start het programma opnieuw op, er is iets fout gegaan"));
 		}
 	}
 }
