@@ -9,10 +9,14 @@ package scoutbar.view.userselection
 	import flash.text.TextFormat;
 	import flash.text.TextFormatAlign;
 	
+	import org.flexunit.runner.manipulation.OrderArgumentPlusAlphaSorter;
+	
 	import scoutbar.data.Global;
+	import scoutbar.data.Order;
 	import scoutbar.view.card.Card;
 	import scoutbar.view.productselection.ProductBoard;
 	import scoutbar.view.productselection.ToggleButton;
+	import scoutbar.loader.JsonSendEvent;
 
 	public class UserBar extends Sprite
 	{
@@ -113,6 +117,7 @@ package scoutbar.view.userselection
 			if(Global.MASSASTREEP){
 				canceltext.text = "Start";
 				Global.MASSASTREEP = false;
+				confirmStreep();
 			}else{
 				canceltext.text = "Streep";
 				Global.MASSASTREEP = true;
@@ -122,6 +127,18 @@ package scoutbar.view.userselection
 		{
 			UserSelection.board.visible = false;
 			UserSelection.product.visible = true;
+		}
+		public function confirmStreep():void
+		{
+			for(var index:String in UserSelection.board.cardarr){
+				if(UserSelection.board.cardarr[index].getCount()>0){
+					var _order:Order = new Order(UserSelection.board.cardarr[index].data);
+					_order.AddRow(UserSelection.board.cardarr[index].getCount(),card.data);
+					var sender:JsonSendEvent = new JsonSendEvent();
+					sender.Send(_order);
+					UserSelection.board.cardarr[index].setCount(0);
+				}
+			}
 		}
 	}
 }

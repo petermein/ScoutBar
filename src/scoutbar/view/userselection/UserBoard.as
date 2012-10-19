@@ -15,7 +15,7 @@ package scoutbar.view.userselection
 	public class UserBoard extends Sprite
 	{
 		
-		private var cardarr:Array = new Array();
+		public var cardarr:Array = new Array();
 		private var scrollfield:Sprite = new Sprite();
 		private var maskingShape:Shape=new Shape();
 		private var maskingShape2:Shape=new Shape();

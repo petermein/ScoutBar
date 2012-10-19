@@ -69,6 +69,9 @@ package scoutbar.view.card
 		public function setCount(i:int):void{
 			push.setcounter(i);
 		}
+		public function getCount():int{
+			return push.getCounter();
+		}
 		public function compareCards(a:Card,b:Card):int
 		{
 			if(a.data.voornaam == b.data.voornaam){

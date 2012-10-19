@@ -45,7 +45,9 @@ package scoutbar.view.card
 			draw();
 			return this.i;
 		}
-		
+		public function getCounter():int{
+			return i;
+		}
 		
 		public function setcounter(i:int):int
 		{
